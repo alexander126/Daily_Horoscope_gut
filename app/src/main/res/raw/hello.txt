@@ -1,0 +1,11 @@
+About Daily Horoscope
+Version: v.1.0.1-developer build
+Last modified : 19.03.2017
+This software has been created in accordance with
+the coursework requirements of the Mobile
+Application module.
+Credit goes to www.cafeastrology.com for providing
+accurate information for the mobile application
+in order to function properly.
+Credit goes to http://android-holo-colors.com/ for
+providing styling features for the application.
