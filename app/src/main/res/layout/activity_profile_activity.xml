@@ -40,37 +40,35 @@
         android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_margin="330dp"
-        android:layout_marginTop="30dp"
         android:src="@drawable/gobutton"
-        android:contentDescription="button" />
+        android:contentDescription="button"
+        android:layout_marginStart="14dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />" />
     <ImageButton
         android:background="@null"
         android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_margin="390dp"
-        android:layout_centerInParent="true"
         android:src="@drawable/info"
-        android:contentDescription="button" />
+        android:contentDescription="button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
     <ImageButton
         android:background="@null"
         android:id="@+id/btn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_margin="450dp"
-        android:layout_centerInParent="true"
         android:src="@drawable/exit_button"
-        android:contentDescription="button" />
+        android:contentDescription="button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/name"
+        android:layout_marginEnd="13dp" />
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/elements"
-        android:layout_below="@+id/textView"
-        android:layout_marginBottom="60dp"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/name"
+        android:layout_alignEnd="@+id/btn3" />
 </RelativeLayout>
