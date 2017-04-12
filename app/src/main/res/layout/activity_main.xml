@@ -285,7 +285,7 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bExit"
-        android:src="@drawable/exit_button_pressed"
+        android:src="@drawable/exit_button"
         android:layout_below="@+id/bSagittarius"
         android:layout_marginStart="80dp"
         android:layout_marginTop="10dp"
