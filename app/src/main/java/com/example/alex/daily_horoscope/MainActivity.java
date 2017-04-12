@@ -39,9 +39,7 @@ public class MainActivity extends profile_activity {
         textOut.setText("Hello " + editText.getText() + ", pick one of the zodiac symbols below " +
                 "to find out what the stars are holding for you today!");
         //---Initiallize properties for all of the buttons used in the Main Activity Page ---/
-        ImageButton exitButton;
-        exitButton = (ImageButton) findViewById(R.id.bExit);
-        ImageButton aquaButton;
+               ImageButton aquaButton;
         aquaButton =  (ImageButton) findViewById(R.id.bAquarius);
         ImageButton piscesButton;
         piscesButton = (ImageButton) findViewById(R.id.bPisces);
@@ -67,14 +65,7 @@ public class MainActivity extends profile_activity {
         capriButton =  (ImageButton) findViewById(R.id.bCapricorn);
 
         //---Setting actions for each button when pressed---/
-        exitButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                notificationcall();
-                finish();
-                System.exit(0);
-            }
-        });
+
         aquaButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

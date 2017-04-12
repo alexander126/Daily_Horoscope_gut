@@ -279,16 +279,5 @@
         android:layout_below="@+id/bLibra"
         android:layout_alignEnd="@+id/bLibra"/>
 
-    <ImageButton
-        android:background="@null"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        android:cropToPadding="false"
-        android:id="@+id/bExit"
-        android:src="@drawable/exit_button"
-        android:layout_below="@+id/bSagittarius"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
 </RelativeLayout>
