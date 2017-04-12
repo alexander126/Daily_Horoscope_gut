@@ -38,9 +38,13 @@
         android:id="@+id/dbut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="pick date"
+        android:textSize="50dp"
+        android:text="PICK DATE"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:onClick="showDatePickerDialog"
-       />
+        android:layout_below="@+id/name"
+        android:layout_marginTop="148dp" />
 
     <ImageButton
         android:background="@null"
