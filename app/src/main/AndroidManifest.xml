@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:parentActivityName=".profile_activity"/>
         <activity android:name=".profile_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,21 +22,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".aqua_Activity" />
-        <activity android:name=".pisces_activity" />
-        <activity android:name=".aries_activity" />
-        <activity android:name=".taurus_activity" />
-        <activity android:name=".gemini_activity" />
-        <activity android:name=".cancer_activity" />
-        <activity android:name=".leo_activity" />
-        <activity android:name=".virgo_activity" />
-        <activity android:name=".libra_activity" />
-        <activity android:name=".scorpio_activity" />
-        <activity android:name=".sagittarius_activity" />
-        <activity android:name=".capricorn_activity" />
+        <activity android:name=".aqua_Activity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".pisces_activity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".aries_activity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".taurus_activity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".gemini_activity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".cancer_activity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".leo_activity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".virgo_activity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".libra_activity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".scorpio_activity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".sagittarius_activity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".capricorn_activity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".BasicZodiacActivity" />
 
-        <activity android:name=".aboutActivity" />
+        <activity android:name=".aboutActivity"
+            android:parentActivityName=".MainActivity"/>
 
     </application>
 
