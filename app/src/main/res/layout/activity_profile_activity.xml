@@ -10,7 +10,7 @@
     android:layout_height="match_parent"
     android:background="@color/peach"
     tools:context="com.example.alex.daily_horoscope.profile_activity">
-
+\\asd
     <TextView
         android:textColor="#FFFFFF"
         android:id="@+id/textView"
