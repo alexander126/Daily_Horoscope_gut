@@ -17,14 +17,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
          />
-    <Button
-        android:id="@+id/dbut"
+    <TextView
+        android:id="@+id/know"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="@string/pickDate"
         android:layout_below="@+id/line4"
+        android:text="@string/zodiac"
         android:layout_centerHorizontal="true"/>
+    <ImageButton
+        android:background="@null"
+        android:id="@+id/pickdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/pickdate"
+        android:layout_below="@+id/know"
+        android:layout_centerHorizontal="true"
+        android:onClick="showDatePickerDialog"/>
 <LinearLayout
     android:id="@+id/textline1"
     android:layout_width="fill_parent"

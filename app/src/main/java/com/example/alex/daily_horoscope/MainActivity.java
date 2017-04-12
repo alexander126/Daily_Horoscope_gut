@@ -11,10 +11,19 @@
  */
 package com.example.alex.daily_horoscope;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Build;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -22,6 +31,8 @@ import android.content.Intent;
 import android.widget.TextView;
 import android.view.Gravity;
 import android.graphics.Typeface;
+
+import java.util.Calendar;
 
 public class MainActivity extends profile_activity {
 
@@ -39,124 +50,124 @@ public class MainActivity extends profile_activity {
         textOut.setText("Hello " + editText.getText() + ", pick one of the zodiac symbols below " +
                 "to find out what the stars are holding for you today!");
         //---Initiallize properties for all of the buttons used in the Main Activity Page ---/
-               ImageButton aquaButton;
-        aquaButton =  (ImageButton) findViewById(R.id.bAquarius);
+        ImageButton aquaButton;
+        aquaButton = (ImageButton) findViewById(R.id.bAquarius);
         ImageButton piscesButton;
         piscesButton = (ImageButton) findViewById(R.id.bPisces);
         ImageButton ariesButton;
         ariesButton = (ImageButton) findViewById(R.id.bAries);
         ImageButton taurusButton;
-        taurusButton =  (ImageButton) findViewById(R.id.bTaurs);
+        taurusButton = (ImageButton) findViewById(R.id.bTaurs);
         ImageButton geminiButton;
-        geminiButton =  (ImageButton) findViewById(R.id.bGemini);
+        geminiButton = (ImageButton) findViewById(R.id.bGemini);
         ImageButton cancerButton;
-        cancerButton =  (ImageButton) findViewById(R.id.bCancer);
+        cancerButton = (ImageButton) findViewById(R.id.bCancer);
         ImageButton leoButton;
-        leoButton =  (ImageButton) findViewById(R.id.bLeo);
+        leoButton = (ImageButton) findViewById(R.id.bLeo);
         ImageButton virgoButton;
-        virgoButton =  (ImageButton) findViewById(R.id.bVirgo);
+        virgoButton = (ImageButton) findViewById(R.id.bVirgo);
         ImageButton libraButton;
-        libraButton =  (ImageButton) findViewById(R.id.bLibra);
+        libraButton = (ImageButton) findViewById(R.id.bLibra);
         ImageButton scorpioButton;
-        scorpioButton =  (ImageButton) findViewById(R.id.bScorpio);
+        scorpioButton = (ImageButton) findViewById(R.id.bScorpio);
         ImageButton sagittariusButton;
-        sagittariusButton =  (ImageButton) findViewById(R.id.bSagittarius);
+        sagittariusButton = (ImageButton) findViewById(R.id.bSagittarius);
         ImageButton capriButton;
-        capriButton =  (ImageButton) findViewById(R.id.bCapricorn);
+        capriButton = (ImageButton) findViewById(R.id.bCapricorn);
 
         //---Setting actions for each button when pressed---/
 
-        aquaButton.setOnClickListener(new View.OnClickListener(){
+        aquaButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent aquaActivity = new Intent(MainActivity.this,
                         aqua_Activity.class);
                 startActivity(aquaActivity);
             }
         });
-        piscesButton.setOnClickListener(new View.OnClickListener(){
+        piscesButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent piscesActivity = new Intent(MainActivity.this,
                         pisces_activity.class);
                 startActivity(piscesActivity);
             }
         });
-        ariesButton.setOnClickListener(new View.OnClickListener(){
+        ariesButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent ariesActivity = new Intent(MainActivity.this,
                         aries_activity.class);
                 startActivity(ariesActivity);
             }
         });
-        taurusButton.setOnClickListener(new View.OnClickListener(){
+        taurusButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent taurusActivity = new Intent(MainActivity.this,
                         taurus_activity.class);
                 startActivity(taurusActivity);
             }
         });
-        geminiButton.setOnClickListener(new View.OnClickListener(){
+        geminiButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent geminiActivity = new Intent(MainActivity.this,
                         gemini_activity.class);
                 startActivity(geminiActivity);
             }
         });
-        cancerButton.setOnClickListener(new View.OnClickListener(){
+        cancerButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent cancerActivity = new Intent(MainActivity.this,
                         cancer_activity.class);
                 startActivity(cancerActivity);
             }
         });
-        leoButton.setOnClickListener(new View.OnClickListener(){
+        leoButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent leoActivity = new Intent(MainActivity.this,
                         leo_activity.class);
                 startActivity(leoActivity);
             }
         });
-        virgoButton.setOnClickListener(new View.OnClickListener(){
+        virgoButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent virgoActivity = new Intent(MainActivity.this,
                         virgo_activity.class);
                 startActivity(virgoActivity);
             }
         });
-        libraButton.setOnClickListener(new View.OnClickListener(){
+        libraButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent libraActivity = new Intent(MainActivity.this,
                         libra_activity.class);
                 startActivity(libraActivity);
             }
         });
-        scorpioButton.setOnClickListener(new View.OnClickListener(){
+        scorpioButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent scorpioActivity = new Intent(MainActivity.this,
                         scorpio_activity.class);
                 startActivity(scorpioActivity);
             }
         });
-        sagittariusButton.setOnClickListener(new View.OnClickListener(){
+        sagittariusButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent sagittActivity = new Intent(MainActivity.this,
                         sagittarius_activity.class);
                 startActivity(sagittActivity);
             }
         });
-        capriButton.setOnClickListener(new View.OnClickListener(){
+        capriButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent capriActivity = new Intent(MainActivity.this,
                         capricorn_activity.class);
                 startActivity(capriActivity);
@@ -164,9 +175,104 @@ public class MainActivity extends profile_activity {
         });
 
 
-
-
     }
 
+    public static class DatePickerFragment extends DialogFragment
+            implements DatePickerDialog.OnDateSetListener {
+        Calendar myCalendar = Calendar.getInstance();
 
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current date as the default date in the picker
+
+            int year = myCalendar.get(Calendar.YEAR);
+            int month = myCalendar.get(Calendar.MONTH);
+            int day = myCalendar.get(Calendar.DAY_OF_MONTH);
+
+            // Create a new instance o f DatePickerDialog and return it
+            int theme;
+            if (Build.VERSION.SDK_INT < 23) theme = AlertDialog.THEME_HOLO_DARK;
+            else theme = android.R.style.Theme_Holo_Dialog;
+            return new DatePickerDialog(getActivity(), theme, this, year, month, day);
+
+        }
+
+        String message;
+
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            // Do something with the date chosen by the user
+            month = month + 1;
+            if ((month == 12 && day >= 22 && day <= 31) || (month == 1 && day >= 1 && day <= 19))
+                message = "Capricorn";
+            else if ((month == 1 && day >= 20 && day <= 31) || (month == 2 && day >= 1 && day <= 17))
+                message = "Aquarius";
+            else if ((month == 2 && day >= 18 && day <= 29) || (month == 3 && day >= 1 && day <= 19))
+                message = "Pisces";
+            else if ((month == 3 && day >= 20 && day <= 31) || (month == 4 && day >= 1 && day <= 19))
+                message = "Aries";
+            else if ((month == 4 && day >= 20 && day <= 30) || (month == 5 && day >= 1 && day <= 20))
+                message = "Taurus";
+            else if ((month == 5 && day >= 21 && day <= 31) || (month == 6 && day >= 1 && day <= 20))
+                message = "Gemini";
+            else if ((month == 6 && day >= 21 && day <= 30) || (month == 7 && day >= 1 && day <= 22))
+                message = "Cancer";
+            else if ((month == 7 && day >= 23 && day <= 31) || (month == 8 && day >= 1 && day <= 22))
+                message = "Leo";
+            else if ((month == 8 && day >= 23 && day <= 31) || (month == 9 && day >= 1 && day <= 22))
+                message = "Virgo";
+            else if ((month == 9 && day >= 23 && day <= 30) || (month == 10 && day >= 1 && day <= 22))
+                message = "Libra";
+            else if ((month == 10 && day >= 23 && day <= 31) || (month == 11 && day >= 1 && day <= 21))
+                message = "Scorpio";
+            else if ((month == 11 && day >= 22 && day <= 30) || (month == 12 && day >= 1 && day <= 21))
+                message = "Sagittarius";
+            else
+                System.out.println("Illegal date");
+            Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new profile_activity.DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    public View.OnClickListener exitButtonLitener = new View.OnClickListener() {
+        public void onClick(View v) {
+            notificationcall();
+            finish();
+            System.exit(0);
+        }
+    };
+    public View.OnClickListener aboutButtonListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            Intent about_activity = new Intent(MainActivity.this,
+                    aboutActivity.class);
+            startActivity(about_activity);
+        }
+    };
+
+    public void makeTag(String tag) {
+        String or = savedname.getString(tag, null);
+        SharedPreferences.Editor preferencesEditor = savedname.edit();
+        preferencesEditor.putString("tag", tag);
+        preferencesEditor.apply();
+    }
+
+    public View.OnClickListener saveButtonListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            //---Setting requirements for editText property---//
+            if (editText.getText().length() > 0) {
+                makeTag(editText.getText().toString());
+                ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE))
+                        .hideSoftInputFromWindow(editText.getWindowToken(), 0);
+                Intent main_activity = new Intent(MainActivity.this,
+                        MainActivity.class);
+                startActivity(main_activity);
+            }
+
+
+        }
+    };
 }

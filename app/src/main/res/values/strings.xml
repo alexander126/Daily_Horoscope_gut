@@ -22,6 +22,7 @@
     <color name="peach">#eeb45f</color>
     <string name="title_activity_setting">Settings</string>
     <string name="pickDate">Pick Date</string>
+    <string name="zodiac">Dont know your zodiac sign?</string>
 
     <!-- Strings related to Settings -->
 

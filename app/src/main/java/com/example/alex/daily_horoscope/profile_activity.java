@@ -48,7 +48,7 @@ public class profile_activity extends AppCompatActivity {
         //---Initiallizing the properties used in profile activity---//
         editText = (EditText) findViewById(R.id.name);
         savedname = getSharedPreferences("notes", MODE_PRIVATE);
-        Button dbtn1 = (Button) findViewById(R.id.dbut);
+        ImageButton dbtn1 = (ImageButton) findViewById(R.id.pickdate);
         ImageButton btn1 = (ImageButton) findViewById(R.id.btn1);
         ImageButton btn2 = (ImageButton) findViewById(R.id.btn2);
         ImageButton btn3 = (ImageButton) findViewById(R.id.btn3);
