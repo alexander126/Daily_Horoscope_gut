@@ -38,20 +38,21 @@
         android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/aqua"/>
+        android:text="@string/aqua"
+        android:layout_marginLeft="5dp"/>
     <TextView
         android:id="@+id/tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pisces"
         android:layout_alignStart="@+id/tv1"
-        android:layout_marginStart="55dp"/>
+        android:layout_marginStart="50dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/aries"
         android:layout_alignStart="@+id/tv2"
-        android:layout_marginStart="50dp"/>
+        android:layout_marginStart="48dp"/>
 </LinearLayout>
 <LinearLayout
     android:id="@+id/line1"
@@ -93,11 +94,39 @@
         android:src="@drawable/aries_button"/>
 </LinearLayout>
     <LinearLayout
+        android:id="@+id/textline2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignStart="@+id/line1"
+        android:layout_below="@+id/line1"
+        android:paddingStart="65dp"
+        >
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/taurus"/>
+        <TextView
+            android:id="@+id/tv5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gemini"
+            android:layout_alignStart="@+id/tv1"
+            android:layout_marginStart="45dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancer"
+            android:layout_alignStart="@+id/tv2"
+            android:layout_marginStart="40dp"/>
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/line2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/line1"
+        android:layout_below="@+id/textline2"
         android:gravity="center">
     <ImageButton
         android:background="@null"
@@ -133,11 +162,40 @@
         />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/textline3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignStart="@+id/line1"
+        android:layout_below="@+id/line2"
+        android:paddingStart="65dp"
+        >
+        <TextView
+            android:id="@+id/tv7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/leo"
+            android:layout_marginStart="10dp"/>
+        <TextView
+            android:id="@+id/tv8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/virgo"
+            android:layout_alignStart="@+id/tv1"
+            android:layout_marginStart="55dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/libra"
+            android:layout_alignStart="@+id/tv2"
+            android:layout_marginStart="55dp"/>
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/line3"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/line2"
+        android:layout_below="@+id/textline3"
         android:gravity="center">
     <ImageButton
         android:background="@null"
@@ -170,11 +228,39 @@
         android:src="@drawable/libra_button"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/textline4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignStart="@+id/line1"
+        android:layout_below="@+id/line3"
+        android:paddingStart="65dp"
+        >
+        <TextView
+            android:id="@+id/tv10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scorpio"/>
+        <TextView
+            android:id="@+id/tv11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sagitt"
+            android:layout_alignStart="@+id/tv1"
+            android:layout_marginStart="35dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancer"
+            android:layout_alignStart="@+id/tv2"
+            android:layout_marginStart="30dp"/>
+    </LinearLayout>
+    <LinearLayout
 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/line3"
+        android:layout_below="@+id/textline4"
         android:id="@+id/line4"
         android:gravity="center">
     <ImageButton
