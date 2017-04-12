@@ -8,20 +8,28 @@
  */
 package com.example.alex.daily_horoscope;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import java.util.Calendar;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 
@@ -37,6 +45,7 @@ public class profile_activity extends AppCompatActivity {
         //---Initiallizing the properties used in profile activity---//
         editText = (EditText) findViewById(R.id.name);
         savedname = getSharedPreferences("notes", MODE_PRIVATE);
+        Button dbtn1 = (Button) findViewById(R.id.dbut);
         ImageButton btn1 = (ImageButton) findViewById(R.id.btn1);
         ImageButton btn2 = (ImageButton) findViewById(R.id.btn2);
         ImageButton btn3 = (ImageButton) findViewById(R.id.btn3);
@@ -46,6 +55,8 @@ public class profile_activity extends AppCompatActivity {
         btn1.setOnClickListener(saveButtonListener);
         btn2.setOnClickListener(aboutButtonListener);
         btn3.setOnClickListener(exitButtonLitener);
+
+
     }
     //---Creating public function for notifications---//
     public void notificationcall(){
@@ -75,6 +86,34 @@ public class profile_activity extends AppCompatActivity {
 
 
     }
+    public static class DatePickerFragment extends DialogFragment
+            implements DatePickerDialog.OnDateSetListener {
+        Calendar myCalendar = Calendar.getInstance();
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current date as the default date in the picker
+
+            int year = myCalendar.get(Calendar.YEAR);
+            int month = myCalendar.get(Calendar.MONTH);
+            int day = myCalendar.get(Calendar.DAY_OF_MONTH);
+
+            // Create a new instance of DatePickerDialog and return it
+            return new DatePickerDialog(getActivity(), this, year, month, day);
+
+        }
+
+
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            // Do something with the date chosen by the user
+        }
+
+    }
+        public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
             public View.OnClickListener exitButtonLitener = new View.OnClickListener(){
                     public void onClick(View v){
                         notificationcall();
@@ -112,4 +151,5 @@ public class profile_activity extends AppCompatActivity {
 
         }
     };
+
 }
