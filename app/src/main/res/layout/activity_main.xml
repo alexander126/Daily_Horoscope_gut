@@ -17,79 +17,88 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
          />
+    <Button
+        android:id="@+id/dbut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="@string/pickDate"
+        android:layout_below="@+id/line4"
+        android:layout_centerHorizontal="true"/>
+<LinearLayout
+    android:id="@+id/textline1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_alignStart="@+id/line1"
+    android:layout_below="@id/textView2"
+    android:paddingStart="65dp"
+    >
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aqua"/>
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pisces"
+        android:layout_alignStart="@+id/tv1"
+        android:layout_marginStart="55dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aries"
+        android:layout_alignStart="@+id/tv2"
+        android:layout_marginStart="50dp"/>
+</LinearLayout>
+<LinearLayout
+    android:id="@+id/line1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_below="@id/textline1"
+    >
 
-    <TextView
-        android:textColor="#FFFFFF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginStart="70dp"
-        android:text="Aqua"
-        android:id="@+id/aquaView"/>
     <ImageButton
-        android:background="@null"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        android:cropToPadding="false"
         android:id="@+id/bAquarius"
-        android:layout_height="80dp"
         android:layout_width="80dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="45dp"
-        android:src="@drawable/aqua_button"
-        />
-    <TextView
-        android:textColor="#FFFFFF"
-        android:id="@+id/piscesView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_toEndOf="@+id/aquaView"
-        android:layout_marginStart="60dp"
-        android:text="Pisces"/>
+        android:layout_height="80dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:cropToPadding="false"
+        android:scaleType="fitCenter"
+        android:src="@drawable/aqua_button" />
+
     <ImageButton
         android:background="@null"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bPisces"
-        android:layout_toEndOf="@+id/bAquarius"
         android:layout_height="80dp"
         android:layout_width="80dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="15dp"
         android:src="@drawable/pisces_button"/>
-    <TextView
-        android:textColor="#FFFFFF"
-        android:id="@+id/ariesView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_toEndOf="@+id/piscesView"
-        android:layout_marginStart="60dp"
-        android:text="Aries"/>
+
     <ImageButton
         android:background="@null"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bAries"
-        android:layout_toEndOf="@+id/bPisces"
         android:layout_height="80dp"
         android:layout_width="80dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="15dp"
         android:src="@drawable/aries_button"/>
-    <TextView
-        android:textColor="#FFFFFF"
-        android:id="@+id/taurusView"
-        android:layout_width="wrap_content"
+</LinearLayout>
+    <LinearLayout
+        android:id="@+id/line2"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_below="@+id/bAquarius"
-        android:layout_alignStart="@+id/bAquarius"
-        android:layout_marginStart="20dp"
-        android:text="Taurus"/>
+        android:orientation="horizontal"
+        android:layout_below="@+id/line1"
+        android:gravity="center">
     <ImageButton
         android:background="@null"
         android:scaleType="fitCenter"
@@ -98,20 +107,9 @@
         android:id="@+id/bTaurs"
         android:layout_height="80dp"
         android:layout_width="80dp"
-        android:src="@drawable/taurus_button"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/bAquarius"
-        android:layout_alignStart="@+id/bAquarius" />
-    <TextView
-        android:textColor="#FFFFFF"
-        android:id="@+id/geminiView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_below="@+id/bPisces"
-        android:layout_alignStart="@+id/bPisces"
-        android:layout_marginStart="20dp"
-        android:text="Gemini"/>
+        android:src="@drawable/taurus_button">
+
+    </ImageButton>
     <ImageButton
         android:background="@null"
         android:scaleType="fitCenter"
@@ -120,19 +118,9 @@
         android:id="@+id/bGemini"
         android:layout_height="80dp"
         android:layout_width="80dp"
-        android:src="@drawable/gemini_button"
-        android:layout_alignTop="@+id/bTaurs"
-        android:layout_alignEnd="@+id/bPisces" />
-    <TextView
-        android:textColor="#FFFFFF"
-        android:id="@+id/cancerView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_below="@+id/bAries"
-        android:layout_alignStart="@+id/bAries"
-        android:layout_marginStart="20dp"
-        android:text="Cancer"/>
+        android:src="@drawable/gemini_button">
+
+    </ImageButton>
     <ImageButton
         android:background="@null"
         android:scaleType="fitCenter"
@@ -142,20 +130,15 @@
         android:layout_height="80dp"
         android:layout_width="80dp"
         android:src="@drawable/cancer_button"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/bAries"
-        android:layout_alignEnd="@+id/bAries"
         />
-    <TextView
-        android:textColor="#FFFFFF"
-        android:id="@+id/leoView"
-        android:layout_width="wrap_content"
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/line3"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_below="@+id/bTaurs"
-        android:layout_alignStart="@+id/bTaurs"
-        android:layout_marginStart="28dp"
-        android:text="Leo"/>
+        android:orientation="horizontal"
+        android:layout_below="@+id/line2"
+        android:gravity="center">
     <ImageButton
         android:background="@null"
         android:scaleType="fitCenter"
@@ -164,20 +147,8 @@
         android:id="@+id/bLeo"
         android:layout_height="80dp"
         android:layout_width="80dp"
-        android:src="@drawable/leo_button"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/bTaurs"
-        android:layout_alignStart="@+id/bTaurs"/>
-    <TextView
-        android:textColor="#FFFFFF"
-        android:id="@+id/virgoView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-2dp"
-        android:layout_below="@+id/bGemini"
-        android:layout_alignStart="@+id/bGemini"
-        android:layout_marginStart="23dp"
-        android:text="Virgo"/>
+        android:src="@drawable/leo_button"/>
+
     <ImageButton
         android:background="@null"
         android:scaleType="fitCenter"
@@ -186,19 +157,8 @@
         android:id="@+id/bVirgo"
         android:layout_height="80dp"
         android:layout_width="80dp"
-        android:src="@drawable/virgo_button"
-        android:layout_alignTop="@+id/bLeo"
-        android:layout_alignStart="@+id/bGemini" />
-    <TextView
-        android:textColor="#FFFFFF"
-        android:id="@+id/libraView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_below="@+id/bCancer"
-        android:layout_alignStart="@+id/bCancer"
-        android:layout_marginStart="25dp"
-        android:text="Libra"/>
+        android:src="@drawable/virgo_button"/>
+
     <ImageButton
         android:background="@null"
         android:scaleType="fitCenter"
@@ -207,20 +167,16 @@
         android:id="@+id/bLibra"
         android:layout_height="80dp"
         android:layout_width="80dp"
-        android:src="@drawable/libra_button"
-        android:layout_below="@+id/bCancer"
-        android:layout_alignTop="@+id/bVirgo"
-        android:layout_alignEnd="@+id/bCancer"/>
-    <TextView
-        android:textColor="#FFFFFF"
-        android:id="@+id/scorpioView"
-        android:layout_width="wrap_content"
+        android:src="@drawable/libra_button"/>
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_below="@+id/bLeo"
-        android:layout_alignStart="@+id/bLeo"
-        android:layout_marginStart="17dp"
-        android:text="Scorpio"/>
+        android:orientation="horizontal"
+        android:layout_below="@+id/line3"
+        android:id="@+id/line4"
+        android:gravity="center">
     <ImageButton
         android:background="@null"
         android:scaleType="fitCenter"
@@ -229,20 +185,8 @@
         android:id="@+id/bScorpio"
         android:layout_height="80dp"
         android:layout_width="80dp"
-        android:src="@drawable/scorpio_button"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/bLeo"
-        android:layout_alignStart="@+id/bLeo" />
-    <TextView
-        android:textColor="#FFFFFF"
-        android:id="@+id/sagittariusView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-2dp"
-        android:layout_below="@+id/bVirgo"
-        android:layout_alignStart="@+id/bVirgo"
-        android:layout_marginStart="10dp"
-        android:text="Sagittarius"/>
+        android:src="@drawable/scorpio_button"/>
+
     <ImageButton
         android:background="@null"
         android:scaleType="fitCenter"
@@ -251,21 +195,8 @@
         android:id="@+id/bSagittarius"
         android:layout_height="80dp"
         android:layout_width="80dp"
-        android:src="@drawable/sagittarius_button"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/bVirgo"
-        android:layout_toStartOf="@+id/bAries" />
-    <TextView
+        android:src="@drawable/sagittarius_button"/>
 
-        android:textColor="#FFFFFF"
-        android:id="@+id/capricornView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_below="@+id/bLibra"
-        android:layout_alignStart="@+id/bLibra"
-        android:layout_marginStart="10dp"
-        android:text="Capricorn"/>
     <ImageButton
         android:background="@null"
         android:scaleType="fitCenter"
@@ -274,10 +205,7 @@
         android:id="@+id/bCapricorn"
         android:layout_height="80dp"
         android:layout_width="80dp"
-        android:src="@drawable/capricorn_button"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/bLibra"
-        android:layout_alignEnd="@+id/bLibra"/>
-
+        android:src="@drawable/capricorn_button"/>
+    </LinearLayout>
 
 </RelativeLayout>

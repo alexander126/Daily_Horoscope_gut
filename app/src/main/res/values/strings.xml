@@ -21,6 +21,7 @@
     <string name="notification">Horoscope</string>
     <color name="peach">#eeb45f</color>
     <string name="title_activity_setting">Settings</string>
+    <string name="pickDate">Pick Date</string>
 
     <!-- Strings related to Settings -->
 
