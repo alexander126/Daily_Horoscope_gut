@@ -8,6 +8,7 @@
  */
 package com.example.alex.daily_horoscope;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.NotificationManager;
@@ -17,6 +18,8 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import java.util.Calendar;
+
+import android.os.Build;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -98,8 +101,11 @@ public class profile_activity extends AppCompatActivity {
             int month = myCalendar.get(Calendar.MONTH);
             int day = myCalendar.get(Calendar.DAY_OF_MONTH);
 
-            // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), this, year, month, day);
+            // Create a new instance o f DatePickerDialog and return it
+            int theme;
+            if (Build.VERSION.SDK_INT < 23) theme = AlertDialog.THEME_HOLO_DARK;
+            else theme = android.R.style.Theme_Holo_Dialog;
+            return new DatePickerDialog(getActivity(),theme, this, year, month, day);
 
         }
 
