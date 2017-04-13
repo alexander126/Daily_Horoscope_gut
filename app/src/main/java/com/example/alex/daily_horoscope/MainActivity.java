@@ -35,11 +35,12 @@ import android.graphics.Typeface;
 import java.util.Calendar;
 
 public class MainActivity extends profile_activity {
-
+    private static Context mContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mContext = this;
         //---Setting property for greeting message and styling it a bit---//
         TextView textOut;
         textOut = (TextView) findViewById(R.id.textView2);
@@ -176,7 +177,57 @@ public class MainActivity extends profile_activity {
 
 
     }
+    //--Initializing static methods for navigation--//
+    public static void goToCapriAct() {
+        Intent capriacti = new Intent(mContext, capricorn_activity.class);
+        mContext.startActivity(capriacti);
+    }
+    public static void goToAquaAct() {
+        Intent aquaacti = new Intent(mContext, aqua_Activity.class);
+        mContext.startActivity(aquaacti);
+    }
+    public static void goToPiscAct() {
+        Intent piscacti = new Intent(mContext, pisces_activity.class);
+        mContext.startActivity(piscacti);
+    }
+    public static void goToAriesAct() {
+        Intent ariesacti = new Intent(mContext, aries_activity.class);
+        mContext.startActivity(ariesacti);
+    }
+    public static void goToTaurAct() {
+        Intent taursacti = new Intent(mContext, taurus_activity.class);
+        mContext.startActivity(taursacti);
+    }
+    public static void goToGeminiAct() {
+        Intent geminiacti = new Intent(mContext, gemini_activity.class);
+        mContext.startActivity(geminiacti);
+    }
+    public static void goToCancAct() {
+        Intent cancacti = new Intent(mContext, cancer_activity.class);
+        mContext.startActivity(cancacti);
+    }
+    public static void goToLeoAct() {
+        Intent leoacti = new Intent(mContext, leo_activity.class);
+        mContext.startActivity(leoacti);
+    }
+    public static void goToVirgoAct() {
+        Intent virgoacti = new Intent(mContext, virgo_activity.class);
+        mContext.startActivity(virgoacti);
+    }
+    public static void goToLibraAct() {
+        Intent libraacti = new Intent(mContext, libra_activity.class);
+        mContext.startActivity(libraacti);
+    }
+    public static void goToScorpAct() {
+        Intent scorpacti = new Intent(mContext, scorpio_activity.class);
+        mContext.startActivity(scorpacti);
+    }
+    public static void goToSaggAct() {
+        Intent saggacti = new Intent(mContext, sagittarius_activity.class);
+        mContext.startActivity(saggacti);
+    }
 
+    //--Setting DatePickerFragment--//
     public static class DatePickerFragment extends DialogFragment
             implements DatePickerDialog.OnDateSetListener {
         Calendar myCalendar = Calendar.getInstance();
@@ -197,44 +248,54 @@ public class MainActivity extends profile_activity {
 
         }
 
+        //--Checks about every single sign and navigation--//
         String message;
-
         public void onDateSet(DatePicker view, int year, int month, int day) {
             // Do something with the date chosen by the user
             month = month + 1;
-            if ((month == 12 && day >= 22 && day <= 31) || (month == 1 && day >= 1 && day <= 19))
-                message = "Capricorn";
-            else if ((month == 1 && day >= 20 && day <= 31) || (month == 2 && day >= 1 && day <= 17))
-                message = "Aquarius";
-            else if ((month == 2 && day >= 18 && day <= 29) || (month == 3 && day >= 1 && day <= 19))
-                message = "Pisces";
-            else if ((month == 3 && day >= 20 && day <= 31) || (month == 4 && day >= 1 && day <= 19))
-                message = "Aries";
-            else if ((month == 4 && day >= 20 && day <= 30) || (month == 5 && day >= 1 && day <= 20))
-                message = "Taurus";
-            else if ((month == 5 && day >= 21 && day <= 31) || (month == 6 && day >= 1 && day <= 20))
-                message = "Gemini";
-            else if ((month == 6 && day >= 21 && day <= 30) || (month == 7 && day >= 1 && day <= 22))
-                message = "Cancer";
-            else if ((month == 7 && day >= 23 && day <= 31) || (month == 8 && day >= 1 && day <= 22))
-                message = "Leo";
-            else if ((month == 8 && day >= 23 && day <= 31) || (month == 9 && day >= 1 && day <= 22))
-                message = "Virgo";
-            else if ((month == 9 && day >= 23 && day <= 30) || (month == 10 && day >= 1 && day <= 22))
-                message = "Libra";
-            else if ((month == 10 && day >= 23 && day <= 31) || (month == 11 && day >= 1 && day <= 21))
-                message = "Scorpio";
-            else if ((month == 11 && day >= 22 && day <= 30) || (month == 12 && day >= 1 && day <= 21))
-                message = "Sagittarius";
+            if ((month == 12 && day >= 22 && day <= 31) || (month == 1 && day >= 1 && day <= 19)){
+                goToCapriAct();
+                }
+            else if ((month == 1 && day >= 20 && day <= 31) || (month == 2 && day >= 1 && day <= 17)){
+                goToAquaAct();
+            }
+            else if ((month == 2 && day >= 18 && day <= 29) || (month == 3 && day >= 1 && day <= 19)) {
+                goToPiscAct();
+            }
+            else if ((month == 3 && day >= 20 && day <= 31) || (month == 4 && day >= 1 && day <= 19)) {
+                goToAriesAct();
+            }
+            else if ((month == 4 && day >= 20 && day <= 30) || (month == 5 && day >= 1 && day <= 20)) {
+                goToTaurAct();
+            }
+            else if ((month == 5 && day >= 21 && day <= 31) || (month == 6 && day >= 1 && day <= 20)) {
+                goToGeminiAct();
+            }
+            else if ((month == 6 && day >= 21 && day <= 30) || (month == 7 && day >= 1 && day <= 22)) {
+                goToCancAct();
+            }
+            else if ((month == 7 && day >= 23 && day <= 31) || (month == 8 && day >= 1 && day <= 22)) {
+                goToLeoAct();
+            }
+            else if ((month == 8 && day >= 23 && day <= 31) || (month == 9 && day >= 1 && day <= 22)) {
+                goToVirgoAct();
+            }
+            else if ((month == 9 && day >= 23 && day <= 30) || (month == 10 && day >= 1 && day <= 22)) {
+                goToLibraAct();
+            }
+            else if ((month == 10 && day >= 23 && day <= 31) || (month == 11 && day >= 1 && day <= 21)) {
+                goToScorpAct();}
+            else if ((month == 11 && day >= 22 && day <= 30) || (month == 12 && day >= 1 && day <= 21)) {
+                goToSaggAct();}
             else
-                System.out.println("Illegal date");
+            {   System.out.println("Illegal date");}
             Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_SHORT);
             toast.show();
         }
     }
 
     public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new profile_activity.DatePickerFragment();
+        DialogFragment newFragment = new MainActivity.DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 

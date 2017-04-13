@@ -21,6 +21,7 @@ public class capricorn_activity extends BasicZodiacActivity {
         setContentView(R.layout.activity_capricorn_activity);
         String link = "https://www.cafeastrology.com/dailyhoroscopes/capricornhorocode.php";
         super.loadHoroscope(link);
+
     }
     protected int getRId() {
         return R.id.webViewCapricorn;
