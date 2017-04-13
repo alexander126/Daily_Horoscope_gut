@@ -16,6 +16,7 @@ import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import java.util.Calendar;
 
@@ -24,6 +25,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
@@ -38,12 +40,38 @@ import android.widget.Toast;
 
 public class profile_activity extends AppCompatActivity {
     //---Setting public proerty for variables inherited in Main Activity---//
+    private String m_Text = "";
     public EditText editText;
     SharedPreferences savedname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_activity);
+        if(isFirstTime()){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Title");
+
+        // Set up the input
+        final EditText input = new EditText(this);
+        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+        // Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_Text = input.getText().toString();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();}
 
         //---Initiallizing the properties used in profile activity---//
         editText = (EditText) findViewById(R.id.name);
@@ -89,64 +117,19 @@ public class profile_activity extends AppCompatActivity {
 
 
     }
-    public static class DatePickerFragment extends DialogFragment
-            implements DatePickerDialog.OnDateSetListener {
-        Calendar myCalendar = Calendar.getInstance();
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current date as the default date in the picker
 
-            int year = myCalendar.get(Calendar.YEAR);
-            int month = myCalendar.get(Calendar.MONTH);
-            int day = myCalendar.get(Calendar.DAY_OF_MONTH);
-
-            // Create a new instance o f DatePickerDialog and return it
-            int theme;
-            if (Build.VERSION.SDK_INT < 23) theme = AlertDialog.THEME_HOLO_DARK;
-            else theme = android.R.style.Theme_Holo_Dialog;
-            return new DatePickerDialog(getActivity(),theme, this, year, month, day);
-
+    private boolean isFirstTime()
+    {
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        boolean ranBefore = preferences.getBoolean("RanBefore", false);
+        if (!ranBefore) {
+            // first time
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("RanBefore", true);
+            editor.apply();
         }
-
-        String message;
-        public void onDateSet(DatePicker view, int year, int month, int day) {
-            // Do something with the date chosen by the user
-            month = month+1;
-            if      ((month == 12 && day >= 22 && day <= 31) || (month ==  1 && day >= 1 && day <= 19))
-                message =  "Capricorn";
-            else if ((month ==  1 && day >= 20 && day <= 31) || (month ==  2 && day >= 1 && day <= 17))
-                message = "Aquarius";
-            else if ((month ==  2 && day >= 18 && day <= 29) || (month ==  3 && day >= 1 && day <= 19))
-                message =  "Pisces";
-            else if ((month ==  3 && day >= 20 && day <= 31) || (month ==  4 && day >= 1 && day <= 19))
-                message =  "Aries";
-            else if ((month ==  4 && day >= 20 && day <= 30) || (month ==  5 && day >= 1 && day <= 20))
-                message =  "Taurus";
-            else if ((month ==  5 && day >= 21 && day <= 31) || (month ==  6 && day >= 1 && day <= 20))
-                message =  "Gemini";
-            else if ((month ==  6 && day >= 21 && day <= 30) || (month ==  7 && day >= 1 && day <= 22))
-                message =  "Cancer";
-            else if ((month ==  7 && day >= 23 && day <= 31) || (month ==  8 && day >= 1 && day <= 22))
-                message =  "Leo";
-            else if ((month ==  8 && day >= 23 && day <= 31) || (month ==  9 && day >= 1 && day <= 22))
-                message =  "Virgo";
-            else if ((month ==  9 && day >= 23 && day <= 30) || (month == 10 && day >= 1 && day <= 22))
-                message =  "Libra";
-            else if ((month == 10 && day >= 23 && day <= 31) || (month == 11 && day >= 1 && day <= 21))
-                message =  "Scorpio";
-            else if ((month == 11 && day >= 22 && day <= 30) || (month == 12 && day >= 1 && day <= 21))
-                message =  "Sagittarius";
-            else
-                System.out.println("Illegal date");
-            Toast toast = Toast.makeText(getContext(),message, Toast.LENGTH_SHORT);
-            toast.show();
-        }
+        return !ranBefore;
     }
-        public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
-    }
-
             public View.OnClickListener exitButtonLitener = new View.OnClickListener(){
                     public void onClick(View v){
                         notificationcall();
