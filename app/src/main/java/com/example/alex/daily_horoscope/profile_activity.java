@@ -40,6 +40,7 @@ import android.widget.Toast;
 
 public class profile_activity extends AppCompatActivity {
     //---Setting public proerty for variables inherited in Main Activity---//
+    private Context cnt;
     private String m_Text = "";
     public EditText editText;
     SharedPreferences savedname;
@@ -47,14 +48,16 @@ public class profile_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_activity);
+        cnt = this;
+        //
         if(isFirstTime()){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(cnt);
         builder.setTitle("Title");
 
         // Set up the input
-        final EditText input = new EditText(this);
+        final EditText input = new EditText(cnt);
         // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         builder.setView(input);
 
         // Set up the buttons
@@ -76,7 +79,6 @@ public class profile_activity extends AppCompatActivity {
         //---Initiallizing the properties used in profile activity---//
         editText = (EditText) findViewById(R.id.name);
         savedname = getSharedPreferences("notes", MODE_PRIVATE);
-        ImageButton dbtn1 = (ImageButton) findViewById(R.id.pickdate);
         ImageButton btn1 = (ImageButton) findViewById(R.id.btn1);
         ImageButton btn2 = (ImageButton) findViewById(R.id.btn2);
         ImageButton btn3 = (ImageButton) findViewById(R.id.btn3);
