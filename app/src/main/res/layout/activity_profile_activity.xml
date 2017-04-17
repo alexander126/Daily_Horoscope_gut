@@ -20,18 +20,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name" />
-    <EditText
-        android:background="@drawable/apptheme_textfield_activated_holo_light"
-        android:id="@+id/name"
-        android:width="150dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/textView"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:hint="@string/hint1"/>
 
 
     <ImageButton
@@ -61,7 +49,7 @@
         android:src="@drawable/exit_button"
         android:contentDescription="button"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/name"
+        android:layout_alignParentEnd="true"
         android:layout_marginEnd="13dp" />
 
 

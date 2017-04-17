@@ -18,7 +18,10 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import android.graphics.Typeface;
 import android.os.Build;
@@ -36,6 +39,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -54,12 +58,12 @@ public class profile_activity extends AppCompatActivity {
         cnt = this;
         int theme;
         if (Build.VERSION.SDK_INT < 23) theme = AlertDialog.THEME_HOLO_DARK;
-        else theme = android.R.style.Theme_Holo_Dialog;
+        else theme = android.R.style.Theme_Holo_Light;
         if(isFirstTime()){
             ContextThemeWrapper wrapper = new ContextThemeWrapper(cnt ,theme);
         AlertDialog.Builder builder = new AlertDialog.Builder(wrapper);
         builder.setTitle("Enter your name");
-        builder.
+
 
 
 
@@ -80,18 +84,24 @@ public class profile_activity extends AppCompatActivity {
         builder.show();}
 
         //---Initiallizing the properties used in profile activity---//
-        editText = (EditText) findViewById(R.id.name);
-        savedname = getSharedPreferences("notes", MODE_PRIVATE);
+
         ImageButton btn1 = (ImageButton) findViewById(R.id.btn1);
         ImageButton btn2 = (ImageButton) findViewById(R.id.btn2);
         ImageButton btn3 = (ImageButton) findViewById(R.id.btn3);
 
-        editText.setText(savedname.getString("tag",null));
+
         //---Initiallizing functions for each button--//
         btn1.setOnClickListener(saveButtonListener);
         btn2.setOnClickListener(aboutButtonListener);
         btn3.setOnClickListener(exitButtonLitener);
 
+        TextView txtv1 = (TextView) findViewById(R.id.textView);
+        long date = System.currentTimeMillis();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM MM dd, yyyy");
+        String dateString = sdf.format(date);
+
+        txtv1.setText("Hello" + m_Text + "welcome to Daily Horoscope, the current date is: " + dateString);
 
     }
     //---Creating public function for notifications---//
@@ -150,20 +160,10 @@ public class profile_activity extends AppCompatActivity {
                         startActivity(about_activity);
                     }
             };
-            public void makeTag(String tag){
-                String or = savedname.getString(tag, null);
-                SharedPreferences.Editor preferencesEditor = savedname.edit();
-                preferencesEditor.putString("tag",tag);
-                preferencesEditor.apply();
-            }
 
             public View.OnClickListener saveButtonListener = new View.OnClickListener(){
                 public void onClick(View v) {
                     //---Setting requirements for editText property---//
-                    if (editText.getText().length()>0){
-                        makeTag(editText.getText().toString());
-                        ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE))
-                                .hideSoftInputFromWindow(editText.getWindowToken(),0);
                     Intent main_activity = new Intent(profile_activity.this,
                         MainActivity.class);
                     startActivity(main_activity);
@@ -171,7 +171,7 @@ public class profile_activity extends AppCompatActivity {
 
 
 
-        }
-    };
+        };
+
 
 }
