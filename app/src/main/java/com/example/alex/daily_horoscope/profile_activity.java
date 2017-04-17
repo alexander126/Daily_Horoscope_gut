@@ -68,7 +68,7 @@ public class profile_activity extends AppCompatActivity {
 
 
         // Set up the input
-       final EditText input = new EditText(cnt);
+       final EditText input = new EditText(this);
         // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_CLASS_TEXT);
        builder.setView(input);
@@ -77,11 +77,9 @@ public class profile_activity extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                makeTag(input.getText().toString());
-                    ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE))
-                            .hideSoftInputFromWindow(editText.getWindowToken(), 0);
+                String value = input.getText().toString();
                     TextView txtv1 = (TextView) findViewById(R.id.textView);
-                    txtv1.setText("Hello" + m_Text + "welcome to Daily Horoscope, the current date is: ");
+                    txtv1.setText("Hello" + value + "welcome to Daily Horoscope, the current date is: ");
 
 
             }
