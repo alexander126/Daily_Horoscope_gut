@@ -25,6 +25,7 @@ import java.util.Date;
 
 import android.graphics.Typeface;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -47,9 +48,8 @@ import android.widget.Toast;
 public class profile_activity extends AppCompatActivity {
     //---Setting public proerty for variables inherited in Main Activity---//
     private Context cnt;
-    private String m_Text = "";
     public EditText editText;
-    SharedPreferences savedname;
+    SharedPreferences m_Text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,8 +77,13 @@ public class profile_activity extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                m_Text = input.getText().toString();
-                Toast.makeText(cnt, m_Text, Toast.LENGTH_SHORT).show();
+                makeTag(input.getText().toString());
+                    ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE))
+                            .hideSoftInputFromWindow(editText.getWindowToken(), 0);
+                    TextView txtv1 = (TextView) findViewById(R.id.textView);
+                    txtv1.setText("Hello" + m_Text + "welcome to Daily Horoscope, the current date is: ");
+
+
             }
         });
         builder.show();}
@@ -95,13 +100,20 @@ public class profile_activity extends AppCompatActivity {
         btn2.setOnClickListener(aboutButtonListener);
         btn3.setOnClickListener(exitButtonLitener);
 
-        TextView txtv1 = (TextView) findViewById(R.id.textView);
-        long date = System.currentTimeMillis();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM MM dd, yyyy");
-        String dateString = sdf.format(date);
 
-        txtv1.setText("Hello" + m_Text + "welcome to Daily Horoscope, the current date is: " + dateString);
+
+
+    }
+
+    //--//
+    public void makeTag(String tag) {
+        String or = m_Text.getString(tag, null);
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("tag", tag);
+        editor.apply();
 
     }
     //---Creating public function for notifications---//
