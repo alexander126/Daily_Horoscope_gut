@@ -34,7 +34,7 @@ import android.graphics.Typeface;
 
 import java.util.Calendar;
 
-public class MainActivity extends profile_activity {
+public class MainActivity extends AppCompatActivity {
     private static Context mContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +42,7 @@ public class MainActivity extends profile_activity {
         setContentView(R.layout.activity_main);
         mContext = this.getApplicationContext();
         //---Setting property for greeting message and styling it a bit---//
-        TextView textOut;
-        textOut = (TextView) findViewById(R.id.textView2);
-        textOut.setTextColor(Color.parseColor("#FFFFFF"));
-        textOut.setGravity(Gravity.CENTER);
-        textOut.setTextSize(getResources().getDimension(R.dimen.textsize));
-        textOut.setTypeface(null, Typeface.BOLD_ITALIC);
-        textOut.setText("Hello " + editText.getText() + ", pick one of the zodiac symbols below " +
-                "to find out what the stars are holding for you today!");
+
         //---Initiallize properties for all of the buttons used in the Main Activity Page ---/
         ImageButton aquaButton;
         aquaButton = (ImageButton) findViewById(R.id.bAquarius);
@@ -299,14 +292,7 @@ public class MainActivity extends profile_activity {
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
-    public View.OnClickListener exitButtonLitener = new View.OnClickListener() {
-        public void onClick(View v) {
-            notificationcall();
-            finish();
-            System.exit(0);
-        }
-    };
-    public View.OnClickListener aboutButtonListener = new View.OnClickListener() {
+       public View.OnClickListener aboutButtonListener = new View.OnClickListener() {
         public void onClick(View v) {
             Intent about_activity = new Intent(MainActivity.this,
                     aboutActivity.class);
@@ -314,26 +300,8 @@ public class MainActivity extends profile_activity {
         }
     };
 
-    public void makeTag(String tag) {
-        String or = savedname.getString(tag, null);
-        SharedPreferences.Editor preferencesEditor = savedname.edit();
-        preferencesEditor.putString("tag", tag);
-        preferencesEditor.apply();
-    }
-
-    public View.OnClickListener saveButtonListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            //---Setting requirements for editText property---//
-            if (editText.getText().length() > 0) {
-                makeTag(editText.getText().toString());
-                ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE))
-                        .hideSoftInputFromWindow(editText.getWindowToken(), 0);
-                Intent main_activity = new Intent(MainActivity.this,
-                        MainActivity.class);
-                startActivity(main_activity);
-            }
 
 
         }
-    };
-}
+
+
