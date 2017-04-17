@@ -20,11 +20,13 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import java.util.Calendar;
 
+import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.ContextThemeWrapper;
 import android.text.InputType;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -50,15 +52,21 @@ public class profile_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_activity);
         cnt = this;
-
+        int theme;
+        if (Build.VERSION.SDK_INT < 23) theme = AlertDialog.THEME_HOLO_DARK;
+        else theme = android.R.style.Theme_Holo_Dialog;
         if(isFirstTime()){
-        AlertDialog.Builder builder = new AlertDialog.Builder(profile_activity.this);
-        builder.setTitle("Title");
+            ContextThemeWrapper wrapper = new ContextThemeWrapper(cnt ,theme);
+        AlertDialog.Builder builder = new AlertDialog.Builder(wrapper);
+        builder.setTitle("Enter your name");
+        builder.
+
+
 
         // Set up the input
        final EditText input = new EditText(cnt);
         // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-        input.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
        builder.setView(input);
 
         // Set up the buttons
@@ -66,15 +74,9 @@ public class profile_activity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 m_Text = input.getText().toString();
+                Toast.makeText(cnt, m_Text, Toast.LENGTH_SHORT).show();
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-               dialog.cancel();
-            }
-        });
-
         builder.show();}
 
         //---Initiallizing the properties used in profile activity---//
