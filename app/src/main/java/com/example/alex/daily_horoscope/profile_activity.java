@@ -44,21 +44,22 @@ public class profile_activity extends AppCompatActivity {
     private String m_Text = "";
     public EditText editText;
     SharedPreferences savedname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_activity);
         cnt = this;
-        //
+
         if(isFirstTime()){
-        AlertDialog.Builder builder = new AlertDialog.Builder(cnt);
+        AlertDialog.Builder builder = new AlertDialog.Builder(profile_activity.this);
         builder.setTitle("Title");
 
         // Set up the input
-        final EditText input = new EditText(cnt);
+       final EditText input = new EditText(cnt);
         // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        builder.setView(input);
+       builder.setView(input);
 
         // Set up the buttons
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -70,7 +71,7 @@ public class profile_activity extends AppCompatActivity {
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
+               dialog.cancel();
             }
         });
 
@@ -92,6 +93,7 @@ public class profile_activity extends AppCompatActivity {
 
     }
     //---Creating public function for notifications---//
+
     public void notificationcall(){
         //---Setting parameters to the notification---//
         NotificationCompat.Builder notifBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this)

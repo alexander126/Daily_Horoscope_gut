@@ -40,7 +40,7 @@ public class MainActivity extends profile_activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mContext = this;
+        mContext = this.getApplicationContext();
         //---Setting property for greeting message and styling it a bit---//
         TextView textOut;
         textOut = (TextView) findViewById(R.id.textView2);
@@ -178,51 +178,51 @@ public class MainActivity extends profile_activity {
 
     }
     //--Initializing static methods for navigation--//
-    public static void goToCapriAct() {
+    private static void goToCapriAct() {
         Intent capriacti = new Intent(mContext, capricorn_activity.class);
         mContext.startActivity(capriacti);
     }
-    public static void goToAquaAct() {
+    private static void goToAquaAct() {
         Intent aquaacti = new Intent(mContext, aqua_Activity.class);
         mContext.startActivity(aquaacti);
     }
-    public static void goToPiscAct() {
+    private static void goToPiscAct() {
         Intent piscacti = new Intent(mContext, pisces_activity.class);
         mContext.startActivity(piscacti);
     }
-    public static void goToAriesAct() {
+    private static void goToAriesAct() {
         Intent ariesacti = new Intent(mContext, aries_activity.class);
         mContext.startActivity(ariesacti);
     }
-    public static void goToTaurAct() {
+    private static void goToTaurAct() {
         Intent taursacti = new Intent(mContext, taurus_activity.class);
         mContext.startActivity(taursacti);
     }
-    public static void goToGeminiAct() {
+    private static void goToGeminiAct() {
         Intent geminiacti = new Intent(mContext, gemini_activity.class);
         mContext.startActivity(geminiacti);
     }
-    public static void goToCancAct() {
+    private static void goToCancAct() {
         Intent cancacti = new Intent(mContext, cancer_activity.class);
         mContext.startActivity(cancacti);
     }
-    public static void goToLeoAct() {
+    private static void goToLeoAct() {
         Intent leoacti = new Intent(mContext, leo_activity.class);
         mContext.startActivity(leoacti);
     }
-    public static void goToVirgoAct() {
+    private static void goToVirgoAct() {
         Intent virgoacti = new Intent(mContext, virgo_activity.class);
         mContext.startActivity(virgoacti);
     }
-    public static void goToLibraAct() {
+    private static void goToLibraAct() {
         Intent libraacti = new Intent(mContext, libra_activity.class);
         mContext.startActivity(libraacti);
     }
-    public static void goToScorpAct() {
+    private static void goToScorpAct() {
         Intent scorpacti = new Intent(mContext, scorpio_activity.class);
         mContext.startActivity(scorpacti);
     }
-    public static void goToSaggAct() {
+    private static void goToSaggAct() {
         Intent saggacti = new Intent(mContext, sagittarius_activity.class);
         mContext.startActivity(saggacti);
     }
