@@ -289,17 +289,6 @@ public class MainActivity extends AppCompatActivity {
         DialogFragment newFragment = new MainActivity.DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
-
-       public View.OnClickListener aboutButtonListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            Intent about_activity = new Intent(MainActivity.this,
-                    aboutActivity.class);
-            startActivity(about_activity);
-        }
-    };
-
-
-
-        }
+}
 
 
