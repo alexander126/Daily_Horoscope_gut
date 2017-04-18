@@ -235,8 +235,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Create a new instance o f DatePickerDialog and return it
             int theme;
-            if (Build.VERSION.SDK_INT < 23) theme = AlertDialog.THEME_HOLO_DARK;
-            else theme = android.R.style.Theme_Holo_Dialog;
+            theme = android.R.style.Theme_Holo_Dialog;
             return new DatePickerDialog(getActivity(), theme, this, year, month, day);
 
         }
@@ -281,9 +280,8 @@ public class MainActivity extends AppCompatActivity {
             else if ((month == 11 && day >= 22 && day <= 30) || (month == 12 && day >= 1 && day <= 21)) {
                 goToSaggAct();}
             else
-            {   System.out.println("Illegal date");}
-            Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_SHORT);
-            toast.show();
+            {
+                System.out.println("Illegal date");}
         }
     }
 
