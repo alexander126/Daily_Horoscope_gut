@@ -20,6 +20,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -50,6 +51,7 @@ public class profile_activity extends AppCompatActivity {
     private Context cnt;
     public EditText editText;
     SharedPreferences m_Text;
+    ArrayList<String> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +80,10 @@ public class profile_activity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String value = input.getText().toString();
-                    TextView txtv1 = (TextView) findViewById(R.id.textView);
-                    txtv1.setText("Hello" + value + "welcome to Daily Horoscope, the current date is: ");
+                list.add(value);
 
+                TextView txtv1 = (TextView) findViewById(R.id.textView);
+                txtv1.setText("Hello " + list.get(0) + " welcome to Daily Horoscope, the current date is: ");
 
             }
         });
