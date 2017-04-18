@@ -61,6 +61,10 @@ public class profile_activity extends AppCompatActivity {
         int theme;
         if (Build.VERSION.SDK_INT < 23) theme = AlertDialog.THEME_HOLO_DARK;
         else theme = android.R.style.Theme_Holo_Light;
+        final EditText input = new EditText(this);
+        final SharedPreferences.Editor editor = getSharedPreferences("name", MODE_PRIVATE).edit();
+        SharedPreferences prefs = getSharedPreferences("name", MODE_PRIVATE);
+
         if(isFirstTime()){
             ContextThemeWrapper wrapper = new ContextThemeWrapper(cnt ,theme);
         AlertDialog.Builder builder = new AlertDialog.Builder(wrapper);
@@ -70,25 +74,33 @@ public class profile_activity extends AppCompatActivity {
 
 
         // Set up the input
-       final EditText input = new EditText(this);
         // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_CLASS_TEXT);
        builder.setView(input);
+
 
         // Set up the buttons
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String value = input.getText().toString();
-                list.add(value);
-
-                TextView txtv1 = (TextView) findViewById(R.id.textView);
-                txtv1.setText("Hello " + list.get(0) + " welcome to Daily Horoscope, the current date is: ");
+                editor.putString("myname",input.getText().toString());
+                editor.commit();
 
             }
-        });
-        builder.show();}
 
+        });
+
+        builder.show();}
+        //--Name from the input + date--//
+        long date = System.currentTimeMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM dd, yyyy");
+        String dateString = sdf.format(date);
+
+        String name = prefs.getString("myname","");
+        TextView txtv1 = (TextView) findViewById(R.id.textView);
+
+        txtv1.setText("Hello " + name + " welcome to Daily Horoscope, the current date is: " + dateString);
         //---Initiallizing the properties used in profile activity---//
 
         ImageButton btn1 = (ImageButton) findViewById(R.id.btn1);
@@ -100,6 +112,7 @@ public class profile_activity extends AppCompatActivity {
         btn1.setOnClickListener(saveButtonListener);
         btn2.setOnClickListener(aboutButtonListener);
         btn3.setOnClickListener(exitButtonLitener);
+
 
 
 
