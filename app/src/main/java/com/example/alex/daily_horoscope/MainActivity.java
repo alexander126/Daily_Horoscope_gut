@@ -169,10 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(capriActivity);
             }
         });
-
-
     }
-
     //--Initializing static methods for navigation--//
     private static void goToCapriAct() {
         Intent capriacti = new Intent(mContext, capricorn_activity.class);
@@ -267,20 +264,35 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //--Checks about every single sign and navigation--//
-        String message;
         public void onDateSet(DatePicker view, int year, int month, int day) {
             // Do something with the date chosen by the user
             month = month + 1;
+            if ((month == 12 && day >= 22 && day <= 31) || (month == 1 && day >= 1 && day <= 19)) {
                 goToCapriAct();
+            } else if ((month == 1 && day >= 20 && day <= 31) || (month == 2 && day >= 1 && day <= 17)) {
                 goToAquaAct();
+            } else if ((month == 2 && day >= 18 && day <= 29) || (month == 3 && day >= 1 && day <= 19)) {
                 goToPiscAct();
+            } else if ((month == 3 && day >= 20 && day <= 31) || (month == 4 && day >= 1 && day <= 19)) {
                 goToAriesAct();
+            } else if ((month == 4 && day >= 20 && day <= 30) || (month == 5 && day >= 1 && day <= 20)) {
                 goToTaurAct();
+            } else if ((month == 5 && day >= 21 && day <= 31) || (month == 6 && day >= 1 && day <= 20)) {
                 goToGeminiAct();
+            } else if ((month == 6 && day >= 21 && day <= 30) || (month == 7 && day >= 1 && day <= 22)) {
                 goToCancAct();
+            } else if ((month == 7 && day >= 23 && day <= 31) || (month == 8 && day >= 1 && day <= 22)) {
                 goToLeoAct();
+            } else if ((month == 8 && day >= 23 && day <= 31) || (month == 9 && day >= 1 && day <= 22)) {
                 goToVirgoAct();
+            } else if ((month == 9 && day >= 23 && day <= 30) || (month == 10 && day >= 1 && day <= 22)) {
                 goToLibraAct();
+            } else if ((month == 10 && day >= 23 && day <= 31) || (month == 11 && day >= 1 && day <= 21)) {
+                goToScorpAct();
+            } else if ((month == 11 && day >= 22 && day <= 30) || (month == 12 && day >= 1 && day <= 21)) {
+                goToSaggAct();
+            } else {
+                System.out.println("Illegal date");
             }
         }
     }
