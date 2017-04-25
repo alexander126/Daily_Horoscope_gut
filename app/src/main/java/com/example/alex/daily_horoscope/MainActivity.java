@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     //--Initializing static methods for navigation--//
-    private static void goToCapriAct() {
+    public static void goToCapriAct() {
         Intent capriacti = new Intent(mContext, capricorn_activity.class);
         capriacti.addFlags(capriacti.FLAG_ACTIVITY_NEW_TASK);
         mContext.startActivity(capriacti);
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         mContext.startActivity(ariesacti);
     }
 
-    private static void goToTaurAct() {
+    public static void goToTaurAct() {
         Intent taursacti = new Intent(mContext, taurus_activity.class);
         taursacti.addFlags(taursacti.FLAG_ACTIVITY_NEW_TASK);
         mContext.startActivity(taursacti);
