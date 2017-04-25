@@ -142,8 +142,8 @@ public class profile_activity extends AppCompatActivity {
         String name = prefs.getString("myname","");
         TextView txtv1 = (TextView) findViewById(R.id.textView);
        // TextView txtv2 = (TextView) findViewById(R.id.textView1);
-        txtv1.setText("Hello " + name + " welcome to Daily Horoscope, the current date is: " + dateString + ". " +
-                "The current zociac sign is " + sign);
+        txtv1.setText("Hello " + name + " welcome to Daily Horoscope. \nThe current date is: " + dateString + ". " +
+                "\nThe current zociac sign is " + sign);
         //---Initiallizing the properties used in profile activity---//
 
         ImageButton btn1 = (ImageButton) findViewById(R.id.btn1);
