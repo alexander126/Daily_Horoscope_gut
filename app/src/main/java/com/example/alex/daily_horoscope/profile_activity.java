@@ -41,6 +41,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -97,6 +98,7 @@ public class profile_activity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("MM dd, yyyy");
         String dateString = sdf.format(date);
         //--Setting zodiac sign value--//
+        ImageView signView = (ImageView) findViewById(R.id.signImage);
         String sign = "";
         Calendar myCalendar = Calendar.getInstance();
         int month = myCalendar.get(Calendar.MONTH);
@@ -104,39 +106,51 @@ public class profile_activity extends AppCompatActivity {
         month = month + 1;
         if ((month == 12 && day >= 22 && day <= 31) || (month == 1 && day >= 1 && day <= 19)){
             sign = "Capricorn";
+            signView.setImageResource(R.drawable.capricorn_button);
         }
         else if ((month == 1 && day >= 20 && day <= 31) || (month == 2 && day >= 1 && day <= 17)){
             sign = "Aquarius";
+            signView.setImageResource(R.drawable.aqua_button);
         }
         else if ((month == 2 && day >= 18 && day <= 29) || (month == 3 && day >= 1 && day <= 19)) {
             sign = "Pisces";
+            signView.setImageResource(R.drawable.pisces_button);
         }
         else if ((month == 3 && day >= 20 && day <= 31) || (month == 4 && day >= 1 && day <= 19)) {
             sign = "Aries";
+            signView.setImageResource(R.drawable.aries_button);
         }
         else if ((month == 4 && day >= 20 && day <= 30) || (month == 5 && day >= 1 && day <= 20)) {
             sign = "Taurus";
+            signView.setImageResource(R.drawable.taurus_button);
         }
         else if ((month == 5 && day >= 21 && day <= 31) || (month == 6 && day >= 1 && day <= 20)) {
             sign = "Gemini";
+            signView.setImageResource(R.drawable.gemini_button);
         }
         else if ((month == 6 && day >= 21 && day <= 30) || (month == 7 && day >= 1 && day <= 22)) {
             sign = "Cancer";
+            signView.setImageResource(R.drawable.cancer_button);
         }
         else if ((month == 7 && day >= 23 && day <= 31) || (month == 8 && day >= 1 && day <= 22)) {
             sign = "Leo";
+            signView.setImageResource(R.drawable.leo_button);
         }
         else if ((month == 8 && day >= 23 && day <= 31) || (month == 9 && day >= 1 && day <= 22)) {
             sign = "Virgo";
+            signView.setImageResource(R.drawable.virgo_button);
         }
         else if ((month == 9 && day >= 23 && day <= 30) || (month == 10 && day >= 1 && day <= 22)) {
             sign = "Libra";
+            signView.setImageResource(R.drawable.libra_button);
         }
         else if ((month == 10 && day >= 23 && day <= 31) || (month == 11 && day >= 1 && day <= 21)) {
             sign = "Scorpio";
+            signView.setImageResource(R.drawable.scorpio_button);
         }
         else if ((month == 11 && day >= 22 && day <= 30) || (month == 12 && day >= 1 && day <= 21)) {
             sign = "Sagittarius";
+            signView.setImageResource(R.drawable.sagittarius_button);
         }
 
         String name = prefs.getString("myname","");
