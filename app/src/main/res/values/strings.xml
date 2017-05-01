@@ -1,4 +1,5 @@
 <resources>
+    <string name="alarm_service_label">Hello</string>
     <string name="hello">Hello</string>
     <string name="app_name">Daily Horoscope</string>
     <string name="name">Name: </string>
