@@ -10,6 +10,7 @@
  */
 package com.example.alex.daily_horoscope;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import java.io.BufferedReader;
@@ -22,7 +23,7 @@ import android.os.AsyncTask;
 import android.webkit.WebView;
 
 public class BasicZodiacActivity extends AppCompatActivity {
-
+    String shareContent_;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +74,7 @@ public class BasicZodiacActivity extends AppCompatActivity {
         //---Placing the text in the webview---//
         protected void onPostExecute(String content) {
             WebView wView = (WebView) findViewById(getRId());
+            shareContent_ = content;
             wView.loadDataWithBaseURL("file:///android_asset/", content, "text/html", "utf8", null);
         }
     }
@@ -117,5 +119,12 @@ public class BasicZodiacActivity extends AppCompatActivity {
         }
 
         return s;
+    }
+    protected void shareLink(){
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, shareContent_);
+        sendIntent.setType("text/plain");
+        startActivity(Intent.createChooser(sendIntent, parseText(getResources().getText(R.string.send_to).toString())));
     }
 }

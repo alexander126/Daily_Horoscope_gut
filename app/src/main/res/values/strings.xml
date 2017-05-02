@@ -24,6 +24,7 @@
     <string name="title_activity_setting">Settings</string>
     <string name="pickDate">Pick Date</string>
     <string name="zodiac">Dont know your zodiac sign?</string>
+    <string name="send_to">Send to...</string>
 
     <!-- Strings related to Settings -->
 
