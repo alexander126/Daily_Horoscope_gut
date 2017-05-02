@@ -54,7 +54,6 @@ public class profile_activity extends AppCompatActivity {
     private Context cnt;
     public EditText editText;
     SharedPreferences m_Text;
-    private PendingIntent pendingIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
