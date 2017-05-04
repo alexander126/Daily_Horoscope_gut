@@ -23,7 +23,7 @@ import android.os.AsyncTask;
 import android.webkit.WebView;
 
 public class BasicZodiacActivity extends AppCompatActivity {
-    String shareContent_;
+    String shareContent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,8 +75,19 @@ public class BasicZodiacActivity extends AppCompatActivity {
         protected void onPostExecute(String content) {
             WebView wView = (WebView) findViewById(getRId());
             wView.loadDataWithBaseURL("file:///android_asset/", content, "text/html", "utf8", null);
-            shareContent_ = content;
+            String finalText = content;
+            shareContent = parseShareText(parseText(finalText));
+            String asd = "asd";
         }
+    }
+    private String parseShareText(String origin){
+            String newShareString;
+        newShareString = replace(origin,"document.write(\"", null);
+        newShareString = replace(newShareString,"  <br>&nbsp;     </td>		</tr>		<tr>		<td  style=font-family: Trebuchet MS; font-size: 20pt; font-weight:normal; color:#000000; text-align: center;>			&nbsp;Creativity: Fair ~ Love: Excellent ~ Business: Fair</td>		</tr>		</table></div> </body></html>",null);
+        newShareString = replace(newShareString,"<div align=center>\t<table border=0 cellpadding=4 cellspacing=0 width=100%>\t\t<tr>\t\t\t<td style=font-family: Trebuchet MS; color: #B05090; font-weight: bold; font-size:26pt; text-align:center;>", null);
+        newShareString = replace(newShareString, "</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Trebuchet MS; color: #000000; font-weight: bold; font-size:8pt; text-align:left;>May 4, 2017</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqaries8.png width=100 height=100 style=\\ 'float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t\t\t", "\n");
+        newShareString = replace(newShareString,"&#39;","`");
+        return newShareString;
     }
 
     private String parseText(String origin) {
@@ -123,7 +134,7 @@ public class BasicZodiacActivity extends AppCompatActivity {
     protected void shareLink(){
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, shareContent_);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, shareContent);
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.send_to)));
     }
