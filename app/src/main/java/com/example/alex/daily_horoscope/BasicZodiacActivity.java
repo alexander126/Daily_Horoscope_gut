@@ -74,8 +74,8 @@ public class BasicZodiacActivity extends AppCompatActivity {
         //---Placing the text in the webview---//
         protected void onPostExecute(String content) {
             WebView wView = (WebView) findViewById(getRId());
-            shareContent_ = content;
             wView.loadDataWithBaseURL("file:///android_asset/", content, "text/html", "utf8", null);
+            shareContent_ = content;
         }
     }
 
@@ -125,6 +125,6 @@ public class BasicZodiacActivity extends AppCompatActivity {
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, shareContent_);
         sendIntent.setType("text/plain");
-        startActivity(Intent.createChooser(sendIntent, parseText(getResources().getText(R.string.send_to).toString())));
+        startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.send_to)));
     }
 }
