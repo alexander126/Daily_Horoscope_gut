@@ -13,6 +13,7 @@ package com.example.alex.daily_horoscope;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class aries_activity extends BasicZodiacActivity {
 
@@ -23,11 +24,12 @@ public class aries_activity extends BasicZodiacActivity {
         setContentView(R.layout.activity_aries_activity);
         String link = "https://www.cafeastrology.com/dailyhoroscopes/arieshorocode.php";
         super.loadHoroscope(link);
-        Button share = (Button) findViewById(R.id.share);
+        ImageButton share = (ImageButton) findViewById(R.id.shareContent);
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 shareLink();
+
             }
         });
     }

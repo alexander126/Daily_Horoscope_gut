@@ -11,6 +11,8 @@
 package com.example.alex.daily_horoscope;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 public class aqua_Activity extends BasicZodiacActivity {
 
@@ -21,6 +23,13 @@ public class aqua_Activity extends BasicZodiacActivity {
         setContentView(R.layout.activity_aqua_);
         String link = "https://www.cafeastrology.com/dailyhoroscopes/aquariushorocode.php";
         super.loadHoroscope(link);
+        ImageButton share = (ImageButton) findViewById(R.id.shareContent);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shareLink();
+            }
+        });
     }
 
     protected int getRId() {

@@ -77,15 +77,30 @@ public class BasicZodiacActivity extends AppCompatActivity {
             wView.loadDataWithBaseURL("file:///android_asset/", content, "text/html", "utf8", null);
             String finalText = content;
             shareContent = parseShareText(parseText(finalText));
-            String asd = "asd";
         }
     }
     private String parseShareText(String origin){
             String newShareString;
         newShareString = replace(origin,"document.write(\"", null);
-        newShareString = replace(newShareString,"  <br>&nbsp;     </td>		</tr>		<tr>		<td  style=font-family: Trebuchet MS; font-size: 20pt; font-weight:normal; color:#000000; text-align: center;>			&nbsp;Creativity: Fair ~ Love: Excellent ~ Business: Fair</td>		</tr>		</table></div> </body></html>",null);
+        newShareString = replace(newShareString,"  <br>&nbsp;     </td>		</tr>		<tr>		<td  style=font-family: Trebuchet MS; font-size: 20pt; font-weight:normal; color:#000000; text-align: center;>			&nbsp;",null);
+        newShareString = replace(newShareString,"</td>		</tr>		</table></div> </body></html>", null);
         newShareString = replace(newShareString,"<div align=center>\t<table border=0 cellpadding=4 cellspacing=0 width=100%>\t\t<tr>\t\t\t<td style=font-family: Trebuchet MS; color: #B05090; font-weight: bold; font-size:26pt; text-align:center;>", null);
-        newShareString = replace(newShareString, "</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Trebuchet MS; color: #000000; font-weight: bold; font-size:8pt; text-align:left;>May 4, 2017</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqaries8.png width=100 height=100 style=\\ 'float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t\t\t", "\n");
+        newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Trebuchet MS; color: #000000; font-weight: bold; font-size:8pt; text-align:left;>", "\n");
+        newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqaries8.png width=100 height=100 style=\\ 'float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t\t\t", "\n");
+        newShareString = replace(newShareString," </td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Trebuchet MS; color: #000000; font-weight: bold; font-size:8pt; text-align:left;>", null);
+        newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqaquarius8.png width=110 height=110 style=float: left; margin-left:0px; margin-right:4px; margin-bottom:0px; margin-top:0px;>\t", "\n");
+        newShareString = replace(newShareString,"<div align=center>\t<table border=0 cellpadding=1 cellspacing=0 width=100%>\t\t<tr>\t\t\t<td style=font-family: Trebuchet MS; color: #B05090; font-weight: bold; font-size:26pt; text-align:center;>",null);
+        newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqpisces8.png width=110 height=110 style=float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t", "\n");
+        newShareString = replace(newShareString,"     <br>&nbsp;     </td>\t\t</tr>\t\t<tr>\t\t<td  style=font-family: Verdana; font-size: 20pt; font-weight:normal; color:#000000; text-align: center;>\t\t\t&nbsp;","\n");
+        newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqtaurus8.png width=110 height=110 style=float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t","\n");
+        newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqgemini8.png width=110 height=110 style=float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t\t", "\n");
+        newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqcancer8.png width=100 height=100 style=float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t\t\t", "\n");
+        newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqvirgo8.png width=110 height=110 style=float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t\t\t", "\n");
+        newShareString = replace(newShareString,"</td>\t\t </tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t<img src=sqleo8.png width=110 height=110 style=float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t\t", "\n");
+        newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqlibra8.png width=110 height=110 style=float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t\t\t", "\n");
+        newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqscorpio8.png width=110 height=110 style=float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t\t\t", "\n");
+        newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqsagittarius8.png width=110 height=110 style=float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t\t\t", "\n");
+        newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqcapricorn9.png width=110 height=110 style=float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t\t\t", "\n");
         newShareString = replace(newShareString,"&#39;","`");
         return newShareString;
     }
@@ -111,6 +126,7 @@ public class BasicZodiacActivity extends AppCompatActivity {
             return null;
 
         System.out.println("----------" + newString);
+
         return newString;
     }
         //--Support string for parseText string--//
