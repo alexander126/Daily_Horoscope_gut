@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.alex.daily_horoscope">
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
@@ -13,50 +14,65 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            />
+        <activity android:name=".MainActivity" />
         <activity android:name=".profile_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".aqua_Activity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".pisces_activity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".aries_activity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".taurus_activity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".gemini_activity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".cancer_activity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".leo_activity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".virgo_activity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".libra_activity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".scorpio_activity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".sagittarius_activity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".capricorn_activity"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".aqua_Activity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".pisces_activity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".aries_activity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".taurus_activity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".gemini_activity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".cancer_activity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".leo_activity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".virgo_activity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".libra_activity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".scorpio_activity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".sagittarius_activity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".capricorn_activity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".BasicZodiacActivity" />
+        <activity
+            android:name=".aboutActivity"
+            android:parentActivityName=".MainActivity" />
 
-        <activity android:name=".aboutActivity"
-            android:parentActivityName=".MainActivity"/>
         <receiver android:name=".AlarmReceiver">
             <intent-filter>
                 <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
+        <activity android:name=".settings"></activity>
     </application>
 
 </manifest>

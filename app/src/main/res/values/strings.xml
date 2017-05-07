@@ -25,6 +25,8 @@
     <string name="pickDate">Pick Date</string>
     <string name="zodiac">Dont know your zodiac sign?</string>
     <string name="send_to">Send to...</string>
+    <string name="information">Enable/Disable your daily notification</string>
+    <string name="checkinformation">Check the information about our app</string>
 
     <!-- Strings related to Settings -->
 

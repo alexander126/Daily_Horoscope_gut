@@ -98,7 +98,6 @@ public class profile_activity extends AppCompatActivity {
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    String value = input.getText().toString();
                     editor.putString("myname", input.getText().toString());
                     editor.commit();
 
@@ -316,9 +315,9 @@ public class profile_activity extends AppCompatActivity {
     };
     public View.OnClickListener aboutButtonListener = new View.OnClickListener() {
         public void onClick(View v) {
-            Intent about_activity = new Intent(profile_activity.this,
-                    aboutActivity.class);
-            startActivity(about_activity);
+            Intent settings_activity = new Intent(profile_activity.this,
+                    settings.class);
+            startActivity(settings_activity);
         }
     };
 
