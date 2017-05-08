@@ -41,24 +41,23 @@ public class settings extends AppCompatActivity {
                 startActivity(about_activity);
             }
         });
-
+        //Set the checkbox value
         final CheckBox checkBox = (CheckBox) findViewById(R.id.chbox);
-
         SharedPreferences preferences = getApplicationContext().getSharedPreferences("name", android.content.Context.MODE_PRIVATE);
-        SharedPreferences prefs = getSharedPreferences("name", MODE_PRIVATE);
         final SharedPreferences.Editor editor = preferences.edit();
-        if((preferences.contains("checked") && preferences.getBoolean("checked",false)) == true) {
+        if((preferences.contains("checked") && preferences.getBoolean("checked",true)) == true) {
             checkBox.setChecked(true);
         }else {
             checkBox.setChecked(false);
 
         }
         //The checkbox doesnt work!!!!!!!!!!!!!!!!!
-        if(checkBox.isChecked()){
-            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent notificationIntent = new Intent("android.media.action.DISPLAY_NOTIFICATION");
+        notificationIntent.addCategory("android.intent.category.DEFAULT");
+        PendingIntent sender = PendingIntent.getBroadcast(this, 0, notificationIntent, 0);
 
-            Intent notificationIntent = new Intent("android.media.action.DISPLAY_NOTIFICATION");
-            notificationIntent.addCategory("android.intent.category.DEFAULT");
+        if(checkBox.isChecked()){
 
             PendingIntent broadcast = PendingIntent.getBroadcast(this, 0 , notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             Calendar calendar = Calendar.getInstance();
@@ -67,7 +66,7 @@ public class settings extends AppCompatActivity {
             calendar.set(Calendar.SECOND, 0);
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 24*60*60*1000 , broadcast);
         }else{
-
+            alarmManager.cancel(sender);
         }
 
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -87,7 +86,7 @@ public class settings extends AppCompatActivity {
         });
 
         //TextView for changing the name
-        TextView tv = (TextView) findViewById(R.id.changeName);
+        ImageButton tv = (ImageButton) findViewById(R.id.changename);
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -39,6 +39,7 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.view.inputmethod.InputMethodManager;
@@ -106,6 +107,7 @@ public class profile_activity extends AppCompatActivity {
             });
 
             builder.show();
+
         }
         //--Name from the input + date--//
         long date = System.currentTimeMillis();

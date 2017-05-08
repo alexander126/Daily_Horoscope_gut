@@ -7,35 +7,66 @@
     android:background="@color/peach"
     tools:context="com.example.alex.daily_horoscope.settings">
 
+
+    <ImageButton
+        android:id="@+id/changename"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:src="@drawable/changename"
+        android:background="@null"/>
     <CheckBox
         android:id="@+id/chbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/information"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/changename"
+        android:layout_marginTop="35dp"
         android:textColor="#ffff"/>
     <ImageButton
-        android:id="@+id/settingsInfo"
+        android:id="@+id/razdelitel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/info"
-        android:layout_alignParentBottom="true"
+        android:layout_height="3dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/razd"
         android:background="@null"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/changename"
+        android:layout_alignParentStart="true" />
+    <ImageButton
+        android:id="@+id/notificationEn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        android:src="@drawable/notific"
+        android:layout_below="@+id/changename"
+        android:layout_alignParentStart="true" />
+    <ImageButton
+        android:id="@+id/secondRazd"
+        android:layout_width="wrap_content"
+        android:layout_height="3dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/razd"
+        android:background="@null"
+        android:layout_below="@id/notificationEn"
         />
-    <TextView
-        android:id="@+id/changeName"
-        android:layout_width="wrap_content"
+
+    <ImageButton
+        android:id="@+id/settingsInfo"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/chbox"
-        android:text="change name"/>
-    <TextView
-        android:id="@+id/tvInfo"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        android:src="@drawable/info"
+        android:layout_below="@+id/secondRazd"
+        />
+    <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/checkinformation"
-        android:layout_above="@id/settingsInfo"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ffff"
-        android:textSize="40px"/>
+        android:layout_height="3dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/razd"
+        android:background="@null"
+        android:layout_below="@id/settingsInfo"/>
 
 </RelativeLayout>

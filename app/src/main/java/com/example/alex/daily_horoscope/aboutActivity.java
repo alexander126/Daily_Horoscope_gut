@@ -27,6 +27,7 @@ public class aboutActivity extends Activity {
             Toast.makeText(getApplicationContext(),
                     "Problems: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+
     }
     //---Function that get file from raw foder in resorces---//
     public void PlayWithRawFiles() throws IOException {
