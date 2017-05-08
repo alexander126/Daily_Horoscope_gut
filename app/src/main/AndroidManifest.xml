@@ -14,8 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:parentActivityName=".profile_activity"/>
+        <activity
+            android:name=".MainActivity"
+            android:parentActivityName=".profile_activity" />
         <activity android:name=".profile_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -73,8 +74,10 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".settings"
-            android:parentActivityName=".profile_activity"/>
+        <activity
+            android:name=".settings"
+            android:parentActivityName=".profile_activity" />
+        <activity android:name=".AutoSettings"></activity>
     </application>
 
 </manifest>

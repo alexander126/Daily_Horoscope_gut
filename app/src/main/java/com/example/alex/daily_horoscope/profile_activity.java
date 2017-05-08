@@ -318,7 +318,7 @@ public class profile_activity extends AppCompatActivity {
     public View.OnClickListener aboutButtonListener = new View.OnClickListener() {
         public void onClick(View v) {
             Intent settings_activity = new Intent(profile_activity.this,
-                    settings.class);
+                    AutoSettings.class);
             startActivity(settings_activity);
         }
     };
