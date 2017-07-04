@@ -12,11 +12,10 @@
         />
     <PreferenceCategory
         android:title="Personalization"/>
-    <EditTextPreference
+    <Preference
         android:key="key2"
         android:title="Change name"
-        android:summary="Change your name"
-        android:dialogMessage="Dialog Message" />
+        android:summary="Change your name" />
     <PreferenceCategory
         android:title="About us"/>
     <Preference
