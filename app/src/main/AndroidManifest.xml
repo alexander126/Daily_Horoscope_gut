@@ -74,9 +74,6 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name=".settings"
-            android:parentActivityName=".profile_activity" />
         <activity android:name=".AutoSettings"></activity>
     </application>
 

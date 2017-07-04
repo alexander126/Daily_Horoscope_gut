@@ -62,19 +62,6 @@ public class profile_activity extends AppCompatActivity {
         setContentView(R.layout.activity_profile_activity);
         cnt = this;
 
-        //--NOTIFICATION--//
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        Intent notificationIntent = new Intent("android.media.action.DISPLAY_NOTIFICATION");
-        notificationIntent.addCategory("android.intent.category.DEFAULT");
-
-        PendingIntent broadcast = PendingIntent.getBroadcast(this, 0 , notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 8);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 24*60*60*1000 , broadcast);
-
         //--else--//
         int theme;
         if (Build.VERSION.SDK_INT < 23) theme = AlertDialog.THEME_HOLO_DARK;
