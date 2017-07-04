@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
-        android:src="@drawable/blankbutton"
+        android:src="@drawable/birthdaybutton"
         android:onClick="showDatePickerDialog"
         android:layout_below="@+id/know"
         android:layout_centerHorizontal="true" />
