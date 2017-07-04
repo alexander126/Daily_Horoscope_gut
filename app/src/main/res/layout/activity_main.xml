@@ -28,14 +28,15 @@
     <ImageButton
         android:background="@null"
         android:id="@+id/pickdate"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
-        android:src="@drawable/pickdate"
+        android:src="@drawable/blankbutton"
+        android:onClick="showDatePickerDialog"
         android:layout_below="@+id/know"
-        android:layout_centerHorizontal="true"
-        android:onClick="showDatePickerDialog"/>
+        android:layout_centerHorizontal="true" />
+
 
 <LinearLayout
     android:id="@+id/line1"
