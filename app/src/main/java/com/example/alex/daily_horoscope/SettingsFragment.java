@@ -1,6 +1,8 @@
 package com.example.alex.daily_horoscope;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceFragment;
 
 /**
@@ -14,5 +16,16 @@ public class SettingsFragment extends PreferenceFragment {
 
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.preferences);
+        findPreference("key3");
+        Preference key3 = (Preference) findPreference("key3");
+        key3.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Intent piscesActivity = new Intent(aboutActivity.class,
+                        aboutActivity.class);
+                startActivity(piscesActivity);
+            }
+        });
     }
+
 }
