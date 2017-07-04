@@ -21,9 +21,10 @@ public class SettingsFragment extends PreferenceFragment {
         key3.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                Intent piscesActivity = new Intent(aboutActivity.class,
+                Intent aboutIntent = new Intent(AutoSettings.this,
                         aboutActivity.class);
-                startActivity(piscesActivity);
+                startActivity(aboutIntent);
+                return true;
             }
         });
     }
