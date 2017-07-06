@@ -14,36 +14,26 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.io.*;
+import android.view.View;
+import mehdi.sakout.aboutpage.AboutPage;
+import mehdi.sakout.aboutpage.Element;
 
 public class aboutActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-        try {
-            PlayWithRawFiles();
-        } catch (IOException e) {
-            Toast.makeText(getApplicationContext(),
-                    "Problems: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+        Element versionElement = new Element();
+        versionElement.setTitle("Version 1.0.1");
 
-    }
-    //---Function that get file from raw foder in resorces---//
-    public void PlayWithRawFiles() throws IOException {
-        String str="";
-        StringBuffer buf = new StringBuffer();
-        InputStream is = this.getResources().openRawResource(R.raw.hello);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        if (is!=null) {
-            while ((str = reader.readLine()) != null) {
-                buf.append(str + "\n" );
-            }
-        }
-        is.close();
-        TextView output = (TextView) findViewById(R.id.textViewFile);
-        output.setText(buf);
+        View aboutPage = new AboutPage(this)
+                .isRTL(false)
+                .addItem(versionElement)
+                .setDescription("Daily Horoscope is an application developed to provide day to day horoscope.")
+                .addGroup("Connect with us")
+                .addEmail("akalapsazov@yahoo.com")
+                .create();
 
-
+        setContentView(aboutPage);
     }
 }

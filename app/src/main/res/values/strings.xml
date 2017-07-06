@@ -1,5 +1,6 @@
 <resources>
     <string name="About">about</string>
+    <string name="Descr">Daily Horoscope is an application developed to provide day to day horoscope.</string>
     <string name="alarm_service_label">Hello</string>
     <string name="hello">Hello</string>
     <string name="app_name">Daily Horoscope</string>
