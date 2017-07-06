@@ -90,8 +90,8 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bTaurs"
-        android:layout_height="80dp"
-        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:src="@drawable/taurus_button">
 
     </ImageButton>
@@ -101,8 +101,8 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bGemini"
-        android:layout_height="80dp"
-        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:src="@drawable/gemini_button">
 
     </ImageButton>
@@ -112,8 +112,8 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bCancer"
-        android:layout_height="80dp"
-        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:src="@drawable/cancer_button"
         />
     </LinearLayout>
@@ -131,8 +131,8 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bLeo"
-        android:layout_height="80dp"
-        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:src="@drawable/leo_button"/>
 
     <ImageButton
@@ -141,8 +141,8 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bVirgo"
-        android:layout_height="80dp"
-        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:src="@drawable/virgo_button"/>
 
     <ImageButton
@@ -151,8 +151,8 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bLibra"
-        android:layout_height="80dp"
-        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:src="@drawable/libra_button"/>
     </LinearLayout>
 
@@ -170,8 +170,8 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bScorpio"
-        android:layout_height="80dp"
-        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:src="@drawable/scorpio_button"/>
 
     <ImageButton
@@ -180,8 +180,8 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bSagittarius"
-        android:layout_height="80dp"
-        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:src="@drawable/sagittarius_button"/>
 
     <ImageButton
@@ -190,8 +190,8 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bCapricorn"
-        android:layout_height="80dp"
-        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:src="@drawable/capricorn_button"/>
     </LinearLayout>
 
