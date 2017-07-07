@@ -50,19 +50,8 @@
         android:src="@drawable/settings"
         android:contentDescription="button"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-    <ImageButton
-        android:background="@null"
-        android:id="@+id/btn3"
-        android:layout_width="60dp"
-        android:layout_height="65dp"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        android:src="@drawable/exit_button"
-        android:contentDescription="button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="13dp" />
+        android:layout_alignParentEnd="true" />
+
 
 
 </RelativeLayout>
