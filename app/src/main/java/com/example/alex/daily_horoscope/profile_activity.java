@@ -233,13 +233,13 @@ public class profile_activity extends AppCompatActivity {
 
         ImageButton btn1 = (ImageButton) findViewById(R.id.btn1);
         ImageButton btn2 = (ImageButton) findViewById(R.id.btn2);
-        ImageButton btn3 = (ImageButton) findViewById(R.id.btn3);
+
 
 
         //---Initiallizing functions for each button--//
         btn1.setOnClickListener(saveButtonListener);
         btn2.setOnClickListener(aboutButtonListener);
-        btn3.setOnClickListener(exitButtonLitener);
+
 
 
     }
