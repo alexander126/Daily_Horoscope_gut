@@ -102,6 +102,7 @@ public class BasicZodiacActivity extends AppCompatActivity {
         newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqsagittarius8.png width=110 height=110 style=float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t\t\t", "\n");
         newShareString = replace(newShareString,"</td>\t\t</tr>\t\t<tr>\t\t\t<td style=font-family: Verdana; font-size: 11pt; line-height: 20px; text-align:left;>\t\t\t<img src=sqcapricorn9.png width=110 height=110 style=float: left; margin-left:0px; margin-right:6px; margin-bottom:0px; margin-top:2px;>\t\t\t", "\n");
         newShareString = replace(newShareString,"&#39;","`");
+        newShareString = replace(newShareString,"&#34;","`");
         return newShareString;
     }
 

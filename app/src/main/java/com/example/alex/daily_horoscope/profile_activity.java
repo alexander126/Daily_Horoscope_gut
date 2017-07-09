@@ -227,8 +227,8 @@ public class profile_activity extends AppCompatActivity {
         String name = prefs.getString("myname", "");
         TextView txtv1 = (TextView) findViewById(R.id.textView);
         // TextView txtv2 = (TextView) findViewById(R.id.textView1);
-        txtv1.setText("Hello " + name + ", welcome to Daily Horoscope. \nThe current date is: " + dateString + ". " +
-                "\nThe current zociac sign is: " + "\n");
+        txtv1.setText("Hello " + name + ", welcome to Horoscope Daily. \nToday's date is " + dateString + " and " +
+                "\ntoday's zodiac sign is " + "\n");
         //---Initiallizing the properties used in profile activity---//
 
         ImageButton btn1 = (ImageButton) findViewById(R.id.btn1);
@@ -254,34 +254,6 @@ public class profile_activity extends AppCompatActivity {
         editor.apply();
 
     }
-    //---Creating public function for notifications---//
-    public void notificationcall() {
-        //---Setting parameters to the notification---//
-        NotificationCompat.Builder notifBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this)
-                .setDefaults(NotificationCompat.DEFAULT_ALL)
-                .setSmallIcon(R.drawable.notificaion_icon)
-                .setTicker("Alert New Message")
-                .setContentTitle("Goodbye!")
-                .setContentText("It was nice having you today! Come back tomorrow for your new horoscope!")
-                .setAutoCancel(true);
-        //---Giving funcionality to the notification---//
-        Intent resultIntent = new Intent(this, MainActivity.class);
-        //---Back stack supporting navigation of the notification---//
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        stackBuilder.addParentStack(MainActivity.class);
-        stackBuilder.addNextIntent(resultIntent);
-        PendingIntent resultPendingIntent =
-                stackBuilder.getPendingIntent(
-                        0,
-                        PendingIntent.FLAG_UPDATE_CURRENT
-                );
-        notifBuilder.setContentIntent(resultPendingIntent);
-        //---Building the application---//
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(1, notifBuilder.build());
-
-
-    }
 
     private boolean isFirstTime() {
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
@@ -295,13 +267,6 @@ public class profile_activity extends AppCompatActivity {
         return !ranBefore;
     }
 
-    public View.OnClickListener exitButtonLitener = new View.OnClickListener() {
-        public void onClick(View v) {
-            notificationcall();
-            finish();
-            System.exit(0);
-        }
-    };
     public View.OnClickListener aboutButtonListener = new View.OnClickListener() {
         public void onClick(View v) {
             Intent settings_activity = new Intent(profile_activity.this,

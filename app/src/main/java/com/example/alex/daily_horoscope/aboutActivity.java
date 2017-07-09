@@ -29,9 +29,10 @@ public class aboutActivity extends Activity {
         View aboutPage = new AboutPage(this)
                 .isRTL(false)
                 .addItem(versionElement)
-                .setDescription("Daily Horoscope is an application developed to provide day to day horoscope.")
-                .addGroup("Connect with us")
-                .addEmail("akalapsazov@yahoo.com")
+                .setImage(R.drawable.adsoft)
+                .setDescription("Daily Horoscope is an application developed by ADev Software to provide day to day horoscope.")
+                .addGroup("Contact us")
+                .addEmail("aboutadgroup@gmail.com")
                 .create();
 
         setContentView(aboutPage);
