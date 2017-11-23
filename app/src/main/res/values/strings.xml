@@ -3,7 +3,7 @@
     <string name="Descr">Daily Horoscope is an application developed to provide day to day horoscope.</string>
     <string name="alarm_service_label">Hello</string>
     <string name="hello">Hello</string>
-    <string name="app_name">Daily Horoscope</string>
+    <string name="app_name">Horoscope Daily</string>
     <string name="name">Name: </string>
     <string name="button1">Save</string>
     <string name="hint1">Enter your name here</string>
