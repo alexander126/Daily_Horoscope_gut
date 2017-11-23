@@ -50,6 +50,11 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class profile_activity extends AppCompatActivity {
     //---Setting public proerty for variables inherited in Main Activity---//
     private Context cnt;
@@ -61,6 +66,15 @@ public class profile_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_activity);
         cnt = this;
+        // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        mAdView.loadAd(adRequest);
+        MobileAds.initialize(this, "ca-app-pub-8629737007792498~8339643427");
+
 
         //--else--//
         int theme;

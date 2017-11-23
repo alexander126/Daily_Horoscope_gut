@@ -35,14 +35,30 @@ import android.graphics.Typeface;
 import java.io.IOException;
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
+public class MainActivity extends AppCompatActivity  {
     private static Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        mAdView.loadAd(adRequest);
+        MobileAds.initialize(this, "ca-app-pub-8629737007792498~8339643427");
+
         mContext = this.getApplicationContext();
+
+// TODO: Add adView to your view hierarchy.
         //---Setting property for greeting message and styling it a bit---//
 
         //---Initiallize properties for all of the buttons used in the Main Activity Page ---/

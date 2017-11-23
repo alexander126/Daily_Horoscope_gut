@@ -24,5 +24,15 @@
        android:src="@drawable/messenger_button2"
        android:background="@null"
        />
+   <com.google.android.gms.ads.AdView
+       xmlns:ads="http://schemas.android.com/apk/res-auto"
+       android:id="@+id/adView"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerHorizontal="true"
+       android:layout_below="@+id/shareContent"
+       ads:adSize="BANNER"
+       ads:adUnitId="ca-app-pub-8629737007792498~8339643427">
+   </com.google.android.gms.ads.AdView>
 </RelativeLayout>
 </ScrollView>
