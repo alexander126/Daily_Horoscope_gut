@@ -73,7 +73,7 @@ public class profile_activity extends AppCompatActivity {
                 .build();
 
         mAdView.loadAd(adRequest);
-        MobileAds.initialize(this, "ca-app-pub-8629737007792498~8339643427");
+        MobileAds.initialize(this, "ca-app-pub-8629737007792498/4456238739");
 
 
         //--else--//

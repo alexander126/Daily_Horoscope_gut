@@ -10,12 +10,15 @@
  */
 package com.example.alex.daily_horoscope;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+
+
 public class aqua_Activity extends BasicZodiacActivity {
 
     @Override
@@ -30,7 +33,7 @@ public class aqua_Activity extends BasicZodiacActivity {
                 .build();
 
         mAdView.loadAd(adRequest);
-        MobileAds.initialize(this, "ca-app-pub-8629737007792498~8339643427");
+        MobileAds.initialize(this, "ca-app-pub-8629737007792498/4456238739");
         String link = "https://www.cafeastrology.com/dailyhoroscopes/aquariushorocode.php";
         super.loadHoroscope(link);
         ImageButton share = (ImageButton) findViewById(R.id.shareContent);

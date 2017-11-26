@@ -10,6 +10,7 @@
  */
 package com.example.alex.daily_horoscope;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,7 +33,7 @@ public class aries_activity extends BasicZodiacActivity {
                 .build();
 
         mAdView.loadAd(adRequest);
-        MobileAds.initialize(this, "ca-app-pub-8629737007792498~8339643427");
+        MobileAds.initialize(this, "ca-app-pub-8629737007792498/4456238739");
         String link = "https://www.cafeastrology.com/dailyhoroscopes/arieshorocode.php";
         super.loadHoroscope(link);
         ImageButton share = (ImageButton) findViewById(R.id.shareContent);

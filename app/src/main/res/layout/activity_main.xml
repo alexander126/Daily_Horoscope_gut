@@ -17,14 +17,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
          />
-    <!--<TextView-->
-        <!--android:id="@+id/know"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/line4"-->
-        <!--android:text="@string/zodiac"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:textColor="#ffff"/>-->
     <ImageButton
         android:background="@null"
         android:id="@+id/pickdate"
@@ -45,7 +37,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-8629737007792498~8339643427">
+        ads:adUnitId="ca-app-pub-8629737007792498/4456238739">
     </com.google.android.gms.ads.AdView>
 
 
