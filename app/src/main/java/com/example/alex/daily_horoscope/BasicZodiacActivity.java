@@ -60,7 +60,10 @@ public class BasicZodiacActivity extends AppCompatActivity {
                     total.append(line);
                 }
                 //---Put the text into string---//
-                result = total.toString();
+                int iend = total.indexOf("Business");
+                if(iend != -1) {
+                    result = total.substring(0, iend).toString();
+                }
                 String linkCss1 = "<link rel='stylesheet' href='design.css' type='text/css'>";
                 result = "<html><header>" + linkCss1 + "</header><body>" + parseText(result) + "</body></html>";
 

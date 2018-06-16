@@ -34,7 +34,7 @@ public class aqua_Activity extends BasicZodiacActivity {
 
         mAdView.loadAd(adRequest);
         MobileAds.initialize(this, "ca-app-pub-8629737007792498/4456238739");
-        String link = "https://www.cafeastrology.com/dailyhoroscopes/aquariushorocode.php";
+        String link = "https://cafeastrology.com/aquariusdailyhoroscope.html";
         super.loadHoroscope(link);
         ImageButton share = (ImageButton) findViewById(R.id.shareContent);
         share.setOnClickListener(new View.OnClickListener() {

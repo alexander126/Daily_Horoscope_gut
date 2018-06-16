@@ -33,7 +33,7 @@ public class cancer_activity extends BasicZodiacActivity {
 
         mAdView.loadAd(adRequest);
         MobileAds.initialize(this, "ca-app-pub-8629737007792498/4456238739");
-        String link = "https://www.cafeastrology.com/dailyhoroscopes/cancerhorocode.php";
+        String link = "https://cafeastrology.com/cancerdailyhoroscope.html";
         super.loadHoroscope(link);
         ImageButton share = (ImageButton) findViewById(R.id.shareContent);
         share.setOnClickListener(new View.OnClickListener() {

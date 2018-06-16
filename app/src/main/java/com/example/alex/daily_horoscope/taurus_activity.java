@@ -32,7 +32,7 @@ public class taurus_activity extends BasicZodiacActivity {
 
         mAdView.loadAd(adRequest);
         MobileAds.initialize(this, "ca-app-pub-8629737007792498/4456238739");
-        String link = "https://www.cafeastrology.com/dailyhoroscopes/taurushorocode.php";
+        String link = "https://cafeastrology.com/taurusdailyhoroscope.html";
         super.loadHoroscope(link);
         ImageButton share = (ImageButton) findViewById(R.id.shareContent);
         share.setOnClickListener(new View.OnClickListener() {
