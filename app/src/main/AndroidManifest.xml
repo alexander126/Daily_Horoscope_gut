@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.alex.daily_horoscope"
-    >
+    package="com.example.alex.daily_horoscope">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -18,7 +17,7 @@
         <activity
             android:name=".MainActivity"
             android:parentActivityName=".profile_activity" />
-        <activity android:name=".profile_activity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -26,6 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".profile_activity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".aqua_Activity"
             android:parentActivityName=".MainActivity" />
@@ -75,7 +77,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".AutoSettings"></activity>
+        <activity android:name=".AutoSettings" />
+
     </application>
 
 </manifest>

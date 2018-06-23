@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/backgroundhoroscope"
+    tools:context="com.example.alex.daily_horoscope.LoginActivity">
+
+    <EditText
+        android:layout_centerInParent="true"
+        android:id="@+id/usernametxt"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:drawableStart="@drawable/usernameicon"
+        android:textAlignment="textStart"
+        android:drawablePadding="30dp"
+        android:text="username"
+        android:gravity="center"
+        android:background="@drawable/roundedlogin"/>
+
+    <EditText
+        android:id="@+id/passwordtxt"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:drawableStart="@drawable/passwordicon"
+        android:layout_alignStart="@+id/usernametxt"
+        android:layout_alignEnd="@id/usernametxt"
+        android:layout_below="@+id/usernametxt"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/roundedlogin"
+        android:gravity="center"
+        android:textAlignment="textStart"
+        android:drawablePadding="30dp"
+        android:text="password" />
+    <Button
+        android:id="@+id/loginbtn"
+        android:background="@drawable/roundedlogin"
+        android:text="Log In"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignStart="@id/usernametxt"
+        android:layout_alignEnd="@id/usernametxt"
+        android:layout_below="@id/passwordtxt"
+        android:layout_marginTop="12dp"
+        />
+    <ProgressBar
+        android:id="@+id/loginbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginbtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/white"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>

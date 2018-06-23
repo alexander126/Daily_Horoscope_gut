@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "915388498973",
+    "firebase_url": "https://dailyhoroscope-618f8.firebaseio.com",
+    "project_id": "dailyhoroscope-618f8",
+    "storage_bucket": "dailyhoroscope-618f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915388498973:android:78f7f93700b684c5",
+        "android_client_info": {
+          "package_name": "alex.daily_horoscope"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915388498973-t11tt6idtuho4d9uu5du99ve4j37efha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvBlM8f4KCGFXFGhHf7Ft-ZA3_y2gVsXk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
