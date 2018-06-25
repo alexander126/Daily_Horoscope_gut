@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/backgroundhoroscope"
+    tools:context="com.example.alex.daily_horoscope.RegisterActivity">
+    <EditText
+        android:layout_centerInParent="true"
+        android:id="@+id/emailsignup"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:textAlignment="center"
+        android:textColor="#85FFFFFF"
+        android:textSize="10pt"
+        android:inputType="textEmailAddress"
+        android:hint="email@example.com"
+        android:gravity="center"
+        android:background="@drawable/roundedlogin"/>
+
+    <EditText
+        android:id="@+id/passwordsignup"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/roundedlogin"
+        android:layout_alignStart="@+id/emailsignup"
+        android:layout_alignEnd="@id/emailsignup"
+        android:textColor="#85FFFFFF"
+        android:layout_below="@+id/emailsignup"
+        android:textSize="10pt"
+        android:inputType="textPassword"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:hint="password" />
+    <EditText
+        android:id="@+id/passwordconfirm"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/roundedlogin"
+        android:layout_alignStart="@+id/emailsignup"
+        android:layout_alignEnd="@id/emailsignup"
+        android:textColor="#85FFFFFF"
+        android:layout_below="@+id/passwordsignup"
+        android:textSize="10pt"
+        android:inputType="textPassword"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:hint="password" />
+    <Button
+        android:id="@+id/register"
+        android:background="@drawable/roundedlogin"
+        android:text="Continue"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textColor="#85FFFFFF"
+        android:layout_alignStart="@id/emailsignup"
+        android:layout_alignEnd="@id/emailsignup"
+        android:layout_below="@id/passwordconfirm"
+        android:layout_marginTop="12dp"
+        />
+
+</RelativeLayout>

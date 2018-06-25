@@ -78,7 +78,7 @@
         </receiver>
 
         <activity android:name=".AutoSettings" />
-
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>

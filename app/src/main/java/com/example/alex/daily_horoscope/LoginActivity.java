@@ -6,9 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,26 +22,25 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Button login;
-    private String pass;
-    private String usr;
     private ProgressBar bar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
-        EditText username = (EditText) findViewById(R.id.usernametxt);
-        EditText password = (EditText) findViewById(R.id.passwordtxt);
+        final EditText username = (EditText) findViewById(R.id.usernametxt);
+        final EditText password = (EditText) findViewById(R.id.passwordtxt);
         login = (Button) findViewById(R.id.loginbtn);
-        pass = password.getText().toString();
-        usr = username.getText().toString();
         bar = (ProgressBar) findViewById(R.id.loginbar);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 bar.setVisibility(View.VISIBLE);
+                final String pass = password.getText().toString();
+                final String usr = username.getText().toString();
                 Log.d("email", usr);
                 mAuth.signInWithEmailAndPassword(usr, pass)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
@@ -72,6 +73,18 @@ public class LoginActivity extends AppCompatActivity {
                 else{
                     Toast.makeText(LoginActivity.this, "Sorry",Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+    }
+
+    public void register (View v)
+    {
+        TextView registerText = (TextView) findViewById(R.id.registerbtn);
+        registerText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }

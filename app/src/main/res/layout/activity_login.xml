@@ -17,8 +17,10 @@
         android:layout_marginLeft="40dp"
         android:drawableStart="@drawable/usernameicon"
         android:textAlignment="textStart"
-        android:drawablePadding="30dp"
-        android:text="username"
+        android:textColor="#85FFFFFF"
+        android:textSize="10pt"
+        android:inputType="textEmailAddress"
+        android:hint="email@example.com"
         android:gravity="center"
         android:background="@drawable/roundedlogin"/>
 
@@ -30,19 +32,22 @@
         android:drawableStart="@drawable/passwordicon"
         android:layout_alignStart="@+id/usernametxt"
         android:layout_alignEnd="@id/usernametxt"
+        android:textColor="#85FFFFFF"
         android:layout_below="@+id/usernametxt"
+        android:textSize="10pt"
+        android:inputType="textPassword"
         android:layout_marginTop="12dp"
         android:background="@drawable/roundedlogin"
         android:gravity="center"
         android:textAlignment="textStart"
-        android:drawablePadding="30dp"
-        android:text="password" />
+        android:hint="password" />
     <Button
         android:id="@+id/loginbtn"
         android:background="@drawable/roundedlogin"
         android:text="Log In"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:textColor="#85FFFFFF"
         android:layout_alignStart="@id/usernametxt"
         android:layout_alignEnd="@id/usernametxt"
         android:layout_below="@id/passwordtxt"
@@ -56,8 +61,21 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:indeterminate="true"
-        android:indeterminateTint="@color/white"
+        android:indeterminateTint="#85FFFFFF"
         android:visibility="gone"
         />
+    <TextView
+        android:id="@+id/registerbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#85FFFFFF"
+        android:textStyle="bold"
+        android:textSize="10pt"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:clickable="true"
+        android:onClick="register"
+        android:text="REGISTER"/>
 
 </RelativeLayout>
