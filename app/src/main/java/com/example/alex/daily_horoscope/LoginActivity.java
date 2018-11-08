@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
     private Button login;
     private ProgressBar bar;
 
@@ -30,11 +31,12 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
         final EditText username = (EditText) findViewById(R.id.usernametxt);
         final EditText password = (EditText) findViewById(R.id.passwordtxt);
         login = (Button) findViewById(R.id.loginbtn);
         bar = (ProgressBar) findViewById(R.id.loginbar);
-
+        isUserLogged();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         });
             }
+
             private void updateUI(FirebaseUser user){
                 if (user != null)
                 {
@@ -75,6 +78,12 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    public void isUserLogged (){
+        if(mUser != null){
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void register (View v)
