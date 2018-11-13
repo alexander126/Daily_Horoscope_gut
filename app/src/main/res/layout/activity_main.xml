@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/peach"
+    android:background="@color/stormGrey"
     tools:context="com.example.alex.daily_horoscope.MainActivity">
 
     <TextView
@@ -17,30 +17,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
          />
-    <ImageButton
-        android:background="@null"
-        android:id="@+id/pickdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:adjustViewBounds="true"
-        android:src="@drawable/birthdaybutton"
-        android:onClick="showDatePickerDialog"
-        android:layout_above="@+id/adView"
-        android:layout_below="@+id/line4"
-        android:layout_centerHorizontal="true" />
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-8629737007792498/4456238739">
-    </com.google.android.gms.ads.AdView>
-
-
 <LinearLayout
     android:id="@+id/line1"
     android:layout_width="fill_parent"
@@ -57,7 +33,7 @@
         android:background="@null"
         android:cropToPadding="false"
         android:scaleType="fitCenter"
-        android:src="@drawable/aqua_button" />
+        android:src="@drawable/horoscope" />
 
     <ImageButton
         android:background="@null"
@@ -67,7 +43,7 @@
         android:id="@+id/bPisces"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/pisces_button"/>
+        android:src="@drawable/horoscope"/>
 
     <ImageButton
         android:background="@null"
@@ -77,7 +53,7 @@
         android:id="@+id/bAries"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/aries_button"/>
+        android:src="@drawable/horoscope"/>
 </LinearLayout>
 
     <LinearLayout
@@ -95,7 +71,7 @@
         android:id="@+id/bTaurs"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/taurus_button">
+        android:src="@drawable/horoscope">
 
     </ImageButton>
     <ImageButton
@@ -106,7 +82,7 @@
         android:id="@+id/bGemini"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/gemini_button">
+        android:src="@drawable/horoscope">
 
     </ImageButton>
     <ImageButton
@@ -117,7 +93,7 @@
         android:id="@+id/bCancer"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/cancer_button"
+        android:src="@drawable/horoscope"
         />
     </LinearLayout>
 
@@ -136,7 +112,7 @@
         android:id="@+id/bLeo"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/leo_button"/>
+        android:src="@drawable/horoscope"/>
 
     <ImageButton
         android:background="@null"
@@ -146,7 +122,7 @@
         android:id="@+id/bVirgo"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/virgo_button"/>
+        android:src="@drawable/horoscope"/>
 
     <ImageButton
         android:background="@null"
@@ -156,7 +132,7 @@
         android:id="@+id/bLibra"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/libra_button"/>
+        android:src="@drawable/horoscope"/>
     </LinearLayout>
 
     <LinearLayout
@@ -175,7 +151,7 @@
         android:id="@+id/bScorpio"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/scorpio_button"/>
+        android:src="@drawable/horoscope"/>
 
     <ImageButton
         android:background="@null"
@@ -185,7 +161,7 @@
         android:id="@+id/bSagittarius"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/sagittarius_button"/>
+        android:src="@drawable/horoscope"/>
 
     <ImageButton
         android:background="@null"
@@ -195,7 +171,7 @@
         android:id="@+id/bCapricorn"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/capricorn_button"/>
+        android:src="@drawable/horoscope"/>
     </LinearLayout>
 
 

@@ -11,33 +11,13 @@
  */
 package com.example.alex.daily_horoscope;
 
-import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.os.Build;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.DatePicker;
 import android.widget.ImageButton;
-import android.widget.ImageButton;
-import android.widget.Toast;
 import android.content.Intent;
-import android.widget.TextView;
-import android.view.Gravity;
-import android.graphics.Typeface;
 
-import java.io.IOException;
-import java.util.Calendar;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity  {
     private static Context mContext;
@@ -46,16 +26,6 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
-
-        mAdView.loadAd(adRequest);
-        MobileAds.initialize(this, "ca-app-pub-8629737007792498/4456238739");
-
         mContext = this.getApplicationContext();
 
 // TODO: Add adView to your view hierarchy.
@@ -260,63 +230,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     //--Setting DatePickerFragment--//
-    public static class DatePickerFragment extends DialogFragment
-            implements DatePickerDialog.OnDateSetListener {
-        Calendar myCalendar = Calendar.getInstance();
 
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current date as the default date in the picker
-
-            int year = myCalendar.get(Calendar.YEAR);
-            int month = myCalendar.get(Calendar.MONTH);
-            int day = myCalendar.get(Calendar.DAY_OF_MONTH);
-
-            // Create a new instance o f DatePickerDialog and return it
-            int theme;
-            theme = android.R.style.Theme_Holo_Dialog;
-            return new DatePickerDialog(getActivity(), theme, this, year, month, day);
-
-        }
-
-        //--Checks about every single sign and navigation--//
-        public void onDateSet(DatePicker view, int year, int month, int day) {
-            // Do something with the date chosen by the user
-            month = month + 1;
-            if ((month == 12 && day >= 22 && day <= 31) || (month == 1 && day >= 1 && day <= 19)) {
-                goToCapriAct();
-            } else if ((month == 1 && day >= 20 && day <= 31) || (month == 2 && day >= 1 && day <= 17)) {
-                goToAquaAct();
-            } else if ((month == 2 && day >= 18 && day <= 29) || (month == 3 && day >= 1 && day <= 19)) {
-                goToPiscAct();
-            } else if ((month == 3 && day >= 20 && day <= 31) || (month == 4 && day >= 1 && day <= 19)) {
-                goToAriesAct();
-            } else if ((month == 4 && day >= 20 && day <= 30) || (month == 5 && day >= 1 && day <= 20)) {
-                goToTaurAct();
-            } else if ((month == 5 && day >= 21 && day <= 31) || (month == 6 && day >= 1 && day <= 20)) {
-                goToGeminiAct();
-            } else if ((month == 6 && day >= 21 && day <= 30) || (month == 7 && day >= 1 && day <= 22)) {
-                goToCancAct();
-            } else if ((month == 7 && day >= 23 && day <= 31) || (month == 8 && day >= 1 && day <= 22)) {
-                goToLeoAct();
-            } else if ((month == 8 && day >= 23 && day <= 31) || (month == 9 && day >= 1 && day <= 22)) {
-                goToVirgoAct();
-            } else if ((month == 9 && day >= 23 && day <= 30) || (month == 10 && day >= 1 && day <= 22)) {
-                goToLibraAct();
-            } else if ((month == 10 && day >= 23 && day <= 31) || (month == 11 && day >= 1 && day <= 21)) {
-                goToScorpAct();
-            } else if ((month == 11 && day >= 22 && day <= 30) || (month == 12 && day >= 1 && day <= 21)) {
-                goToSaggAct();
-            } else {
-                System.out.println("Illegal date");
-            }
-        }
-    }
-
-    public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new MainActivity.DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
-    }
 }
 
 
