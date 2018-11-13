@@ -3,7 +3,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-      <item name="android:statusBarColor">@color/peach</item>
+      <item name="android:statusBarColor">@color/stormGrey</item>
     </style>
     <!--SplashScreen Theme. -->
     <style name="SplashScreen" parent="Theme.AppCompat.NoActionBar">
