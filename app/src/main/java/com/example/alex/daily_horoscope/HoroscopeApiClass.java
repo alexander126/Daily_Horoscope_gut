@@ -21,8 +21,6 @@ public class HoroscopeApiClass extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
-        final TextView mTextView = findViewById(R.id.testreq);
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "https://aztro.sameerkumar.website/?sign=aries&day=today";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
@@ -36,7 +34,6 @@ public class HoroscopeApiClass extends AppCompatActivity {
 
                             JSONObject jObj = new JSONObject(response);
                             Log.d("DESC", jObj.getString("date_range"));
-                            mTextView.setText(jObj.getString("description"));
 
                         } catch (JSONException e) {
                             Log.e("MYAPP", "unexpected JSON exception", e);
