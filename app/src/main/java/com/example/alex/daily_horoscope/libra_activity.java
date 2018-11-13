@@ -30,7 +30,7 @@ public class libra_activity extends BasicZodiacActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_libra_activity);
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://aztro.sameerkumar.website/?sign=virgo&day=today";
+        String url = "https://aztro.sameerkumar.website/?sign=libra&day=today";
         final TextView textView = (TextView) findViewById(R.id.libra_textview);
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
