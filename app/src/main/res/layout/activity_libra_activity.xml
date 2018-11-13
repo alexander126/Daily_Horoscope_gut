@@ -9,30 +9,9 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <WebView
-        android:id="@+id/webViewLibra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <ImageButton
-        android:id="@+id/shareContent"
+    <TextView
+        android:id="@+id/libra_textview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/webViewLibra"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        android:layout_centerInParent="true"
-        android:src="@drawable/messenger_button2"
-        android:background="@null"
-        />
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/shareContent"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-8629737007792498/4456238739">
-    </com.google.android.gms.ads.AdView>
+        android:layout_height="wrap_content" />
 </RelativeLayout>
 </ScrollView>
