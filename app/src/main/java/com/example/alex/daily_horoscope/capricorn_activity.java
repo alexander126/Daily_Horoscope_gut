@@ -13,9 +13,6 @@ package com.example.alex.daily_horoscope;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 
 public class capricorn_activity extends BasicZodiacActivity {
 
@@ -25,13 +22,6 @@ public class capricorn_activity extends BasicZodiacActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capricorn_activity);
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
-
-        mAdView.loadAd(adRequest);
-        MobileAds.initialize(this, "ca-app-pub-8629737007792498/4456238739");
         String link = "https://cafeastrology.com/capricorndailyhoroscope.html";
         super.loadHoroscope(link);
         ImageButton share = (ImageButton) findViewById(R.id.shareContent);
