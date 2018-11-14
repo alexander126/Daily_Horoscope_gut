@@ -12,18 +12,7 @@
     <TextView
         android:id="@+id/libra_textview"
         android:layout_width="match_parent"
-<<<<<<< HEAD
         android:layout_height="wrap_content"
-        android:layout_below="@+id/webViewLibra"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        android:layout_centerInParent="true"
-        android:src="@drawable/messenger_button2"
-        android:background="@null"
         />
-
-=======
-        android:layout_height="wrap_content" />
->>>>>>> c063082a434d959bfa71dc55f4134cf39e57f324
 </RelativeLayout>
 </ScrollView>

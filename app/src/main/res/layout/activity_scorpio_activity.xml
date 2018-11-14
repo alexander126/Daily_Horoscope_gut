@@ -9,28 +9,10 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<<<<<<< HEAD
-    <WebView
-        android:id="@+id/webViewScorpio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <ImageButton
-        android:id="@+id/shareContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/webViewScorpio"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        android:layout_centerInParent="true"
-        android:src="@drawable/messenger_button2"
-        android:background="@null"
-        />
-=======
     <TextView
     android:id="@+id/scorpio_textview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
->>>>>>> c063082a434d959bfa71dc55f4134cf39e57f324
 
 </RelativeLayout>
 </ScrollView>

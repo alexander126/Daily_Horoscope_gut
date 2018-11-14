@@ -11,10 +11,8 @@
 package com.example.alex.daily_horoscope;
 
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.view.View;
 import android.widget.ImageButton;
-=======
 import android.util.Log;
 import android.widget.TextView;
 import com.android.volley.Request;
@@ -25,7 +23,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
->>>>>>> c063082a434d959bfa71dc55f4134cf39e57f324
 
 public class leo_activity extends BasicZodiacActivity {
 
@@ -34,21 +31,7 @@ public class leo_activity extends BasicZodiacActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leo_activity);
-<<<<<<< HEAD
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
-        String link = "https://cafeastrology.com/leodailyhoroscope.html";
-        super.loadHoroscope(link);
-        ImageButton share = (ImageButton) findViewById(R.id.shareContent);
-        share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                shareLink();
-            }
-        });
-    }
-    protected int getRId() {
-        return R.id.webViewLeo;
-=======
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "https://aztro.sameerkumar.website/?sign=leo&day=today";
         final TextView textView = (TextView)findViewById(R.id.leo_textview);
@@ -79,7 +62,8 @@ public class leo_activity extends BasicZodiacActivity {
 
         );
         queue.add(postRequest);
->>>>>>> c063082a434d959bfa71dc55f4134cf39e57f324
+
     }
+
 
 }

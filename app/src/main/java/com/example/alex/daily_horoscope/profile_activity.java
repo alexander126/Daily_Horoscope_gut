@@ -8,47 +8,19 @@
  */
 package com.example.alex.daily_horoscope;
 
-import android.app.AlarmManager;
-import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
-import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
-import android.graphics.Typeface;
-import android.media.Image;
-import android.os.Build;
-import android.preference.PreferenceManager;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.view.ContextThemeWrapper;
 import android.text.Html;
-import android.text.InputType;
-import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
-import android.widget.CheckBox;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 
 public class profile_activity extends AppCompatActivity {
     //---Setting public proerty for variables inherited in Main Activity---//
@@ -67,36 +39,6 @@ public class profile_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_activity);
-<<<<<<< HEAD
-        cnt = this;
-        //--else--//
-        int theme;
-        if (Build.VERSION.SDK_INT < 23) theme = AlertDialog.THEME_HOLO_DARK;
-        else theme = android.R.style.Theme_Holo_Light;
-        final EditText input = new EditText(this);
-        final SharedPreferences.Editor editor = getSharedPreferences("name", MODE_PRIVATE).edit();
-        SharedPreferences prefs = getSharedPreferences("name", MODE_PRIVATE);
-
-        if (isFirstTime()) {
-            ContextThemeWrapper wrapper = new ContextThemeWrapper(cnt, theme);
-            AlertDialog.Builder builder = new AlertDialog.Builder(wrapper);
-            builder.setTitle("Enter your name");
-
-
-            // Set up the input
-            // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-            input.setInputType(InputType.TYPE_CLASS_TEXT);
-            builder.setView(input);
-
-
-            // Set up the buttons
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    editor.putString("myname", input.getText().toString());
-                    editor.commit();
-
-=======
         mSlideViewPager=(ViewPager)findViewById(R.id.slideViewPager);
         mDotLayout = (LinearLayout) findViewById(R.id.dotsLayout);
         sliderAdapter=new SliderAdapter(this);
@@ -114,7 +56,6 @@ public class profile_activity extends AppCompatActivity {
                     startActivity(new Intent(profile_activity.this,MainActivity.class));
                 }else {
                     mSlideViewPager.setCurrentItem(mCurrentPage + 1);
->>>>>>> c063082a434d959bfa71dc55f4134cf39e57f324
                 }
 
             }
