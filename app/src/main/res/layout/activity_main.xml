@@ -27,13 +27,13 @@
 
     <ImageButton
         android:id="@+id/bAquarius"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:adjustViewBounds="true"
         android:background="@null"
         android:cropToPadding="false"
         android:scaleType="fitCenter"
-        android:src="@drawable/horoscope" />
+        android:src="@drawable/aquarius" />
 
     <ImageButton
         android:background="@null"
@@ -41,9 +41,9 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bPisces"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:src="@drawable/horoscope"/>
+        android:layout_height="130dp"
+        android:layout_width="130dp"
+        android:src="@drawable/pisces"/>
 
     <ImageButton
         android:background="@null"
@@ -51,9 +51,9 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bAries"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:src="@drawable/horoscope"/>
+        android:layout_height="130dp"
+        android:layout_width="130dp"
+        android:src="@drawable/aries"/>
 </LinearLayout>
 
     <LinearLayout
@@ -69,9 +69,9 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bTaurs"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:src="@drawable/horoscope">
+        android:layout_height="130dp"
+        android:layout_width="130dp"
+        android:src="@drawable/taurus">
 
     </ImageButton>
     <ImageButton
@@ -80,9 +80,9 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bGemini"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:src="@drawable/horoscope">
+        android:layout_height="130dp"
+        android:layout_width="130dp"
+        android:src="@drawable/gemini">
 
     </ImageButton>
     <ImageButton
@@ -91,9 +91,9 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bCancer"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:src="@drawable/horoscope"
+        android:layout_height="130dp"
+        android:layout_width="130dp"
+        android:src="@drawable/cancer"
         />
     </LinearLayout>
 
@@ -110,9 +110,9 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bLeo"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:src="@drawable/horoscope"/>
+        android:layout_height="130dp"
+        android:layout_width="130dp"
+        android:src="@drawable/leo"/>
 
     <ImageButton
         android:background="@null"
@@ -120,9 +120,9 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bVirgo"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:src="@drawable/horoscope"/>
+        android:layout_height="130dp"
+        android:layout_width="130dp"
+        android:src="@drawable/virgo"/>
 
     <ImageButton
         android:background="@null"
@@ -130,9 +130,9 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bLibra"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:src="@drawable/horoscope"/>
+        android:layout_height="130dp"
+        android:layout_width="130dp"
+        android:src="@drawable/libra"/>
     </LinearLayout>
 
     <LinearLayout
@@ -149,9 +149,9 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bScorpio"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:src="@drawable/horoscope"/>
+        android:layout_height="130dp"
+        android:layout_width="130dp"
+        android:src="@drawable/scorpio"/>
 
     <ImageButton
         android:background="@null"
@@ -159,9 +159,9 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bSagittarius"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:src="@drawable/horoscope"/>
+        android:layout_height="130dp"
+        android:layout_width="130dp"
+        android:src="@drawable/sagittarius"/>
 
     <ImageButton
         android:background="@null"
@@ -169,9 +169,9 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:id="@+id/bCapricorn"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:src="@drawable/horoscope"/>
+        android:layout_height="130dp"
+        android:layout_width="130dp"
+        android:src="@drawable/capricorn"/>
     </LinearLayout>
 
 
