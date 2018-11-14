@@ -13,6 +13,7 @@ package com.example.alex.daily_horoscope;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,7 +33,8 @@ public class scorpio_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scorpio_activity);
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://aztro.sameerkumar.website/?sign=aries&day=today";
+        String url = "https://aztro.sameerkumar.website/?sign=scorpio&day=today";
+        final TextView textView = (TextView) findViewById(R.id.scorpio_textview);
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
@@ -40,8 +42,8 @@ public class scorpio_activity extends AppCompatActivity {
                         Log.d("Response", response);
                         try{
                             JSONObject jObj = new JSONObject(response);
-                            Log.d("DESC",jObj.getString("date_range"));
-                            Log.d("DESC",jObj.getString("description"));
+                            String horoscope = jObj.getString("description");
+                            textView.setText(horoscope);
 
                         }catch (JSONException e){
                             Log.e("MyAPP","unexpected JSON exception");
