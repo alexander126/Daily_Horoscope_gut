@@ -31,9 +31,11 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.ContextThemeWrapper;
+import android.text.Html;
 import android.text.InputType;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -45,6 +47,7 @@ import android.widget.EditText;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -60,245 +63,90 @@ public class profile_activity extends AppCompatActivity {
     private Context cnt;
     public EditText editText;
     SharedPreferences m_Text;
+    private ViewPager mSlideViewPager;
+    private LinearLayout mDotLayout;
+    private TextView[] mDots;
+    private SliderAdapter sliderAdapter;
+    private Button backPage;
+    private Button nextPage;
+    private int mCurrentPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_activity);
-        cnt = this;
-        // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
+        mSlideViewPager=(ViewPager)findViewById(R.id.slideViewPager);
+        mDotLayout = (LinearLayout) findViewById(R.id.dotsLayout);
+        sliderAdapter=new SliderAdapter(this);
+        mSlideViewPager.setAdapter(sliderAdapter);
+        backPage = (Button)findViewById(R.id.backButton);
+        nextPage = (Button)findViewById(R.id.nextButton);
 
-        mAdView.loadAd(adRequest);
-        MobileAds.initialize(this, "ca-app-pub-8629737007792498/4456238739");
+        addDotsIndicator(0);
+        mSlideViewPager.addOnPageChangeListener(viewListener);
 
-
-        //--else--//
-        int theme;
-        if (Build.VERSION.SDK_INT < 23) theme = AlertDialog.THEME_HOLO_DARK;
-        else theme = android.R.style.Theme_Holo_Light;
-        final EditText input = new EditText(this);
-        final SharedPreferences.Editor editor = getSharedPreferences("name", MODE_PRIVATE).edit();
-        SharedPreferences prefs = getSharedPreferences("name", MODE_PRIVATE);
-
-        if (isFirstTime()) {
-            ContextThemeWrapper wrapper = new ContextThemeWrapper(cnt, theme);
-            AlertDialog.Builder builder = new AlertDialog.Builder(wrapper);
-            builder.setTitle("Enter your name");
-
-
-            // Set up the input
-            // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-            input.setInputType(InputType.TYPE_CLASS_TEXT);
-            builder.setView(input);
-
-
-            // Set up the buttons
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    editor.putString("myname", input.getText().toString());
-                    editor.commit();
-
+        nextPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mCurrentPage==2){
+                    startActivity(new Intent(profile_activity.this,MainActivity.class));
+                }else {
+                    mSlideViewPager.setCurrentItem(mCurrentPage + 1);
                 }
 
-            });
-
-            builder.show();
+            }
+        });
+        backPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mCurrentPage!=0) {
+                    mSlideViewPager.setCurrentItem(mCurrentPage - 1);
+                }
+            }
+        });
+    }
+    public void addDotsIndicator(int position){
+        mDots = new TextView[3];
+        mDotLayout.removeAllViews();
+        for (int i=0 ; i<mDots.length; i++){
+            mDots[i] = new TextView(this);
+            mDots[i].setText(Html.fromHtml("&#8226;"));
+            mDots[i].setTextSize(35);
+            mDots[i].setTextColor(getResources().getColor(R.color.colorTransparentWhite));
+            mDotLayout.addView(mDots[i]);
 
         }
-        //--Name from the input + date--//
-        long date = System.currentTimeMillis();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM, yyyy");
-        String dateString = sdf.format(date);
-        //--Setting zodiac sign value--//
-        ImageButton signView = (ImageButton) findViewById(R.id.signImage);
-        Calendar myCalendar = Calendar.getInstance();
-        int month = myCalendar.get(Calendar.MONTH);
-        int day = myCalendar.get(Calendar.DAY_OF_MONTH);
-        month = month + 1;
-        if ((month == 12 && day >= 22 && day <= 31) || (month == 1 && day >= 1 && day <= 19)) {
-            signView.setImageResource(R.drawable.capricorn_button);
-            Intent capriacti = new Intent(cnt, capricorn_activity.class);
-            capriacti.addFlags(capriacti.FLAG_ACTIVITY_NEW_TASK);
-            cnt.startActivity(capriacti);
-        } else if ((month == 1 && day >= 20 && day <= 31) || (month == 2 && day >= 1 && day <= 17)) {
-            signView.setImageResource(R.drawable.aqua_button);
-            signView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent aquaActivity = new Intent(profile_activity.this,
-                            aqua_Activity.class);
-                    startActivity(aquaActivity);
-                }
-            });
-        } else if ((month == 2 && day >= 18 && day <= 29) || (month == 3 && day >= 1 && day <= 19)) {
-            signView.setImageResource(R.drawable.pisces_button);
-            signView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent piscesActivity = new Intent(profile_activity.this,
-                            pisces_activity.class);
-                    startActivity(piscesActivity);
-                }
-            });
-        } else if ((month == 3 && day >= 20 && day <= 31) || (month == 4 && day >= 1 && day <= 19)) {
-            signView.setImageResource(R.drawable.aries_button);
-            signView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent ariesActivity = new Intent(profile_activity.this,
-                            aries_activity.class);
-                    startActivity(ariesActivity);
-                }
-            });
-        } else if ((month == 4 && day >= 20 && day <= 30) || (month == 5 && day >= 1 && day <= 20)) {
-            signView.setImageResource(R.drawable.taurus_button);
-            signView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent taurusActiity = new Intent(profile_activity.this,
-                            taurus_activity.class);
-                    startActivity(taurusActiity);
-                }
-            });
 
-        } else if ((month == 5 && day >= 21 && day <= 31) || (month == 6 && day >= 1 && day <= 20)) {
-            signView.setImageResource(R.drawable.gemini_button);
-            signView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent geminiActivity = new Intent(profile_activity.this,
-                            gemini_activity.class);
-                    startActivity(geminiActivity);
-                }
-            });
-        } else if ((month == 6 && day >= 21 && day <= 30) || (month == 7 && day >= 1 && day <= 22)) {
-            signView.setImageResource(R.drawable.cancer_button);
-            signView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent cancerActivity = new Intent(profile_activity.this,
-                            cancer_activity.class);
-                    startActivity(cancerActivity);
-                }
-            });
-        } else if ((month == 7 && day >= 23 && day <= 31) || (month == 8 && day >= 1 && day <= 22)) {
-            signView.setImageResource(R.drawable.leo_button);
-            signView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent leoActivity = new Intent(profile_activity.this,
-                            leo_activity.class);
-                    startActivity(leoActivity);
-                }
-            });
-        } else if ((month == 8 && day >= 23 && day <= 31) || (month == 9 && day >= 1 && day <= 22)) {
-            signView.setImageResource(R.drawable.virgo_button);
-            signView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent virgoActivity = new Intent(profile_activity.this,
-                            virgo_activity.class);
-                    startActivity(virgoActivity);
-                }
-            });
-        } else if ((month == 9 && day >= 23 && day <= 30) || (month == 10 && day >= 1 && day <= 22)) {
-            signView.setImageResource(R.drawable.libra_button);
-            signView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent libraActivity = new Intent(profile_activity.this,
-                            libra_activity.class);
-                    startActivity(libraActivity);
-                }
-            });
-        } else if ((month == 10 && day >= 23 && day <= 31) || (month == 11 && day >= 1 && day <= 21)) {
-            signView.setImageResource(R.drawable.scorpio_button);
-            signView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent scorpioActivity = new Intent(profile_activity.this,
-                            scorpio_activity.class);
-                    startActivity(scorpioActivity);
-                }
-            });
-        } else if ((month == 11 && day >= 22 && day <= 30) || (month == 12 && day >= 1 && day <= 21)) {
-            signView.setImageResource(R.drawable.sagittarius_button);
-            signView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent sagittariusActivity = new Intent(profile_activity.this,
-                            sagittarius_activity.class);
-                    startActivity(sagittariusActivity);
-                }
-            });
+        if(mDots.length>0){
+            mDots[position].setTextColor(getResources().getColor(R.color.colorWhite));
+        }
+    }
+    ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
+        @Override
+        public void onPageScrolled(int i, float v, int i1) {
+
         }
 
-        String name = prefs.getString("myname", "");
-        TextView txtv1 = (TextView) findViewById(R.id.textView);
-        // TextView txtv2 = (TextView) findViewById(R.id.textView1);
-        txtv1.setText("Hello " + name + ", welcome to Horoscope Daily. \nToday's date is " + dateString + " and " +
-                "\ntoday's zodiac sign is " + "\n");
-        //---Initiallizing the properties used in profile activity---//
+        @Override
+        public void onPageSelected(int i) {
+            addDotsIndicator(i);
+            mCurrentPage = i;
+            if(i==0){
+                backPage.setVisibility(View.INVISIBLE);
+            }else if(i==mDots.length-1){
+                nextPage.setText("Finish");
 
-        ImageButton btn1 = (ImageButton) findViewById(R.id.btn1);
-        ImageButton btn2 = (ImageButton) findViewById(R.id.btn2);
-
-
-
-        //---Initiallizing functions for each button--//
-        btn1.setOnClickListener(saveButtonListener);
-        btn2.setOnClickListener(aboutButtonListener);
+            }else{
+                backPage.setVisibility(View.VISIBLE);
+                nextPage.setText("Next");
+            }
 
 
-
-    }
-
-    //--//
-    public void makeTag(String tag) {
-        String or = m_Text.getString(tag, null);
-        SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("tag", tag);
-        editor.apply();
-
-    }
-
-    private boolean isFirstTime() {
-        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-        boolean ranBefore = preferences.getBoolean("RanBefore", false);
-        if (!ranBefore) {
-            // first time
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean("RanBefore", true);
-            editor.apply();
         }
-        return !ranBefore;
-    }
 
-    public View.OnClickListener aboutButtonListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            Intent settings_activity = new Intent(profile_activity.this,
-                    AutoSettings.class);
-            startActivity(settings_activity);
+        @Override
+        public void onPageScrollStateChanged(int i) {
+
         }
     };
-
-    public View.OnClickListener saveButtonListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            //---Setting requirements for editText property---//
-            Intent main_activity = new Intent(profile_activity.this,
-                    MainActivity.class);
-            startActivity(main_activity);
-        }
-
-
-    };
-
-
 }

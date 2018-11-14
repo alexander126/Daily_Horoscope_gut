@@ -22,6 +22,7 @@ import android.content.Intent;
 public class MainActivity extends AppCompatActivity  {
     private static Context mContext;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
