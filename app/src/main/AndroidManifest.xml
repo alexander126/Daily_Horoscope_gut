@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.alex.daily_horoscope">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -8,14 +9,13 @@
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
     <application
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:largeHeap="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-8629737007792498~8339643427" />
@@ -88,12 +88,14 @@
 
         <activity android:name=".AutoSettings" />
         <activity android:name=".RegisterActivity" />
-        <service
-            android:name=".FirebaseInstanceIdClass">
+
+        <service android:name=".FirebaseInstanceIdClass">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+
+        <activity android:name=".carouselPicker"></activity>
     </application>
 
 </manifest>

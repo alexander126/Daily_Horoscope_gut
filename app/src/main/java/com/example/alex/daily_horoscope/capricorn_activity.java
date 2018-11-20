@@ -10,6 +10,8 @@
  */
 package com.example.alex.daily_horoscope;
 
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -34,7 +36,14 @@ public class capricorn_activity extends BasicZodiacActivity {
 
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "https://aztro.sameerkumar.website/?sign=capricorn&day=today";
-        final TextView textView = (TextView)findViewById(R.id.capricorn_textview);
+        final TextView textView = (TextView)findViewById(R.id.capricornTextview);
+        final TextView extra = (TextView)findViewById(R.id.extra);
+
+        //Typeface Textviews
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/AdventPro-Light.ttf");
+        textView.setTypeface(typeface);
+        extra.setTypeface(typeface);
+
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
@@ -42,7 +51,9 @@ public class capricorn_activity extends BasicZodiacActivity {
                         Log.d("Response", response);
                         try {
                             JSONObject jObj = new JSONObject(response);
-                            String horoscope = jObj.getString("description");
+                            String horoscope = jObj.getString("current_date") + "\n\n" + jObj.getString("description") + "\n";
+                            String extraInformation = "Lucky number: " + jObj.getString("lucky_number")+ "\n" + "Color: " + jObj.getString("color") + "\n" + "Compatibility: " + jObj.getString("compatibility") + "\n" + "Mood: " + jObj.getString("mood");
+                            extra.setText(extraInformation);
                             textView.setText(horoscope);
 
                         } catch (JSONException e) {
@@ -62,4 +73,8 @@ public class capricorn_activity extends BasicZodiacActivity {
         );
             queue.add(postRequest);
     }
+    public void onBackPressed() {
+        Intent intent = new Intent(capricorn_activity.this,MainActivity.class);
+        startActivity(intent);
     }
+}

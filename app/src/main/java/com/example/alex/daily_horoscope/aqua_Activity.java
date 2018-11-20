@@ -10,9 +10,13 @@
  */
 package com.example.alex.daily_horoscope;
 
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -28,13 +32,21 @@ import org.json.JSONObject;
 
 public class aqua_Activity extends AppCompatActivity {
 
-    @Override
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aqua_);
         RequestQueue queue = Volley.newRequestQueue(this);
-        final TextView textView = (TextView) findViewById(R.id.aqua_textview);
+        final TextView textView = (TextView) findViewById(R.id.aquaTextview);
+        final TextView extra = (TextView)findViewById(R.id.extra);
+        final ImageView image = (ImageView)findViewById(R.id.beggining);
+
+        //Typeface Textviews
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/AdventPro-Light.ttf");
+        textView.setTypeface(typeface);
+        extra.setTypeface(typeface);
+
         String url = "https://aztro.sameerkumar.website/?sign=aquarius&day=today";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>()
@@ -46,7 +58,9 @@ public class aqua_Activity extends AppCompatActivity {
                         try {
 
                             JSONObject jObj = new JSONObject(response);
-                            String horoscope = jObj.getString("description");
+                            String horoscope = jObj.getString("current_date") + "\n\n" + jObj.getString("description") + "\n";
+                            String extraInformation = "Lucky number: " + jObj.getString("lucky_number")+ "\n" + "Color: " + jObj.getString("color") + "\n" + "Compatibility: " + jObj.getString("compatibility") + "\n" + "Mood: " + jObj.getString("mood");
+                            extra.setText(extraInformation);
                             textView.setText(horoscope);
 
                         } catch (JSONException e) {
@@ -67,6 +81,17 @@ public class aqua_Activity extends AppCompatActivity {
         );
         queue.add(postRequest);
 
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(aqua_Activity.this,MainActivity.class));
+            }
+        });
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(aqua_Activity.this,MainActivity.class);
+        startActivity(intent);
     }
 
 }

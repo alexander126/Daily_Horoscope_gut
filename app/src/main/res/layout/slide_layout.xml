@@ -12,10 +12,10 @@
     <TextView
         android:id="@+id/slide_heading"
         android:text="HEADING"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:layout_centerInParent="true"/>
     <TextView
         android:id="@+id/slide_desc"
@@ -24,5 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textSize="20sp"
         android:layout_below="@+id/slide_heading"/>
 </RelativeLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/stormGrey"
+    >
+    <TextView
+        android:id="@+id/choose"
+        android:layout_above="@+id/linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/heading"
+        android:textSize="30sp"
+        android:text="@string/chooseSign"/>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/linear"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp"
+        android:layout_centerInParent="true"
+        >
+        <in.goodiebag.carouselpicker.CarouselPicker
+            android:id="@+id/carouselPicker"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:paddingRight="-120dp"
+            android:paddingLeft="-120dp"
+            app:items_visible="seven">
+
+        </in.goodiebag.carouselpicker.CarouselPicker>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/ripple_effect"
+        android:layout_gravity="bottom"
+        android:text="Check" />
+    <TextView
+        android:id="@+id/unknownZ"
+        android:layout_above="@+id/enter"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:textStyle="italic"
+        android:text="@string/dontKnowZodiac"/>
+</RelativeLayout>

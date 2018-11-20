@@ -10,6 +10,7 @@ package com.example.alex.daily_horoscope;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ import android.content.Intent;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import in.goodiebag.carouselpicker.CarouselPicker;
 
 
 public class profile_activity extends AppCompatActivity {
@@ -46,6 +49,12 @@ public class profile_activity extends AppCompatActivity {
         backPage = (Button)findViewById(R.id.backButton);
         nextPage = (Button)findViewById(R.id.nextButton);
 
+        //TODO: check this lines
+        //set typeface for buttons ???
+     /*   Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/AdventPro-Light.ttf");
+        backPage.setTypeface(typeface);
+        nextPage.setTypeface(typeface); */
+
         addDotsIndicator(0);
         mSlideViewPager.addOnPageChangeListener(viewListener);
 
@@ -53,7 +62,7 @@ public class profile_activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(mCurrentPage==2){
-                    startActivity(new Intent(profile_activity.this,MainActivity.class));
+                    startActivity(new Intent(profile_activity.this,carouselPicker.class));
                 }else {
                     mSlideViewPager.setCurrentItem(mCurrentPage + 1);
                 }

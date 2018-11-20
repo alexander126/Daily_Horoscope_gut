@@ -37,6 +37,7 @@ dependencies {
     implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.android.support:support-vector-drawable:27.1.1'
+    implementation 'com.github.GoodieBag:CarouselPicker:v1.1'
     testCompile 'junit:junit:4.12'
 }
 

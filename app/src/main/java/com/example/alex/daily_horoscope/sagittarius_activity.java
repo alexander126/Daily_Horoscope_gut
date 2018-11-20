@@ -9,6 +9,8 @@
  * @since   2017-03-18
  */
 package com.example.alex.daily_horoscope;
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -37,7 +39,14 @@ public class sagittarius_activity extends AppCompatActivity {
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "https://aztro.sameerkumar.website/?sign=sagittarius&day=today";
-        final TextView textView = (TextView)findViewById(R.id.sagittarius_textview);
+        final TextView textView = (TextView)findViewById(R.id.sagittariusTextview);
+        final TextView extra = (TextView)findViewById(R.id.extra);
+
+        //Typeface Textviews
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/AdventPro-Light.ttf");
+        textView.setTypeface(typeface);
+        extra.setTypeface(typeface);
+
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
@@ -45,7 +54,9 @@ public class sagittarius_activity extends AppCompatActivity {
                         Log.d("Response", response);
                         try{
                             JSONObject jObj = new JSONObject(response);
-                            String horoscope = jObj.getString("description");
+                            String horoscope = jObj.getString("current_date") + "\n\n" + jObj.getString("description") + "\n";
+                            String extraInformation = "Lucky number: " + jObj.getString("lucky_number")+ "\n" + "Color: " + jObj.getString("color") + "\n" + "Compatibility: " + jObj.getString("compatibility") + "\n" + "Mood: " + jObj.getString("mood");
+                            extra.setText(extraInformation);
                             textView.setText(horoscope);
 
                         }catch (JSONException e){
@@ -64,5 +75,9 @@ public class sagittarius_activity extends AppCompatActivity {
         }
         );
         queue.add(postRequest);
+    }
+    public void onBackPressed() {
+        Intent intent = new Intent(sagittarius_activity.this,MainActivity.class);
+        startActivity(intent);
     }
 }
