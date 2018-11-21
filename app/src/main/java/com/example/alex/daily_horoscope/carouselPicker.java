@@ -1,6 +1,8 @@
 package com.example.alex.daily_horoscope;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -27,6 +29,9 @@ public class carouselPicker extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carousel_picker);
+
+        SharedPreferences sharedPref = getSharedPreferences("prefs",MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPref.edit();
 
         choose = (TextView)findViewById(R.id.choose);
         zodiacSign = (TextView)findViewById(R.id.unknownZ);
@@ -67,30 +72,66 @@ public class carouselPicker extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                            if(i==0)
-                                startActivity(new Intent(carouselPicker.this, aqua_Activity.class));
-                            if(i==1)
-                                startActivity(new Intent(carouselPicker.this, pisces_activity.class));
-                            if(i==2)
-                                startActivity(new Intent(carouselPicker.this, aries_activity.class));
-                            if(i==3)
-                                startActivity(new Intent(carouselPicker.this, taurus_activity.class));
-                            if(i==4)
-                                startActivity(new Intent(carouselPicker.this, gemini_activity.class));
-                            if(i==5)
-                                startActivity(new Intent(carouselPicker.this, cancer_activity.class));
-                            if(i==6)
-                                startActivity(new Intent(carouselPicker.this, leo_activity.class));
-                            if(i==7)
-                                startActivity(new Intent(carouselPicker.this, virgo_activity.class));
-                            if(i==8)
-                                startActivity(new Intent(carouselPicker.this, libra_activity.class));
-                            if(i==9)
-                                startActivity(new Intent(carouselPicker.this, scorpio_activity.class));
-                            if(i==10)
-                                startActivity(new Intent(carouselPicker.this, sagittarius_activity.class));
-                            if(i==11)
-                                startActivity(new Intent(carouselPicker.this, capricorn_activity.class));
+                            if(i==0) {
+                                startActivity(new Intent(carouselPicker.this, opening.class));
+                                editor.putString("sign","aqua");
+                                editor.commit();
+                            }
+                            if(i==1) {
+                                startActivity(new Intent(carouselPicker.this, opening.class));
+                                editor.putString("sign","pisces");
+                                editor.commit();
+                            }
+                            if(i==2) {
+                                startActivity(new Intent(carouselPicker.this, opening.class));
+                                editor.putString("sign","aries");
+                                editor.commit();
+                            }
+                            if(i==3) {
+                                startActivity(new Intent(carouselPicker.this, opening.class));
+                                editor.putString("sign","taurus");
+                                editor.commit();
+                            }
+                            if(i==4) {
+                                startActivity(new Intent(carouselPicker.this, opening.class));
+                                editor.putString("sign","gemini");
+                                editor.commit();
+                            }
+                            if(i==5) {
+                                startActivity(new Intent(carouselPicker.this, opening.class));
+                                editor.putString("sign","cancer");
+                                editor.commit();
+                            }
+                            if(i==6) {
+                                startActivity(new Intent(carouselPicker.this, opening.class));
+                                editor.putString("sign","leo");
+                                editor.commit();
+                            }
+                            if(i==7) {
+                                startActivity(new Intent(carouselPicker.this, opening.class));
+                                editor.putString("sign","virgo");
+                                editor.commit();
+                            }
+                            if(i==8) {
+                                startActivity(new Intent(carouselPicker.this, opening.class));
+                                editor.putString("sign","libra");
+                                editor.commit();
+                            }
+                            if(i==9) {
+                                startActivity(new Intent(carouselPicker.this, opening.class));
+                                editor.putString("sign","scorpio");
+                                editor.commit();
+                            }
+                            if(i==10) {
+                                startActivity(new Intent(carouselPicker.this, opening.class));
+                                editor.putString("sign","sagittarius");
+                                editor.commit();
+                            }
+                            if(i==11) {
+                                startActivity(new Intent(carouselPicker.this, opening.class));
+                                editor.putString("sign","capricorn");
+                                editor.commit();
+                            }
 
 
                     }

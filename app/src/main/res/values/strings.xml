@@ -31,6 +31,7 @@
     <string name="checkinformation">Check the information about our app</string>
     <string name="chooseSign">Choose your zodiac sign</string>
     <string name="dontKnowZodiac">Don`t know which is your zodiac sign?</string>
+    <string name="viewAllZodiac">View the whole zodiac</string>
     <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
     <string name="zodiacDates">
         Aquarius January 20 - February 18\n
@@ -119,5 +120,12 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="title_activity_opening"></string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">ADSoft</string>
+    <string name="nav_header_subtitle">aboutadgroup@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

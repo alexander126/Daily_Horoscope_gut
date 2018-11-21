@@ -84,7 +84,14 @@ public class aqua_Activity extends AppCompatActivity {
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(aqua_Activity.this,MainActivity.class));
+                //startActivity(new Intent(aqua_Activity.this,MainActivity.class));
+                String shareText = textView.getText().toString();
+                String shareText2 = extra.getText().toString();
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, shareText+shareText2);
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent, "Share this using..."));
             }
         });
     }
