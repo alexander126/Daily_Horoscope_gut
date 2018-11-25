@@ -34,14 +34,12 @@ public class aries_activity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aries_activity);
-        RequestQueue queue = Volley.newRequestQueue(this);
-        final TextView textView = (TextView) findViewById(R.id.ariesTextview);
+
         final TextView extra = (TextView)findViewById(R.id.extra);
 
         //Typeface Textviews
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/AdventPro-Light.ttf");
-        textView.setTypeface(typeface);
+
         extra.setTypeface(typeface);
 
         String url = "https://aztro.sameerkumar.website/?sign=aries&day=today";
@@ -57,8 +55,7 @@ public class aries_activity extends AppCompatActivity {
                             JSONObject jObj = new JSONObject(response);
                             String horoscope = jObj.getString("current_date") + "\n\n" + jObj.getString("description") + "\n";
                             String extraInformation = "Lucky number: " + jObj.getString("lucky_number")+ "\n" + "Color: " + jObj.getString("color") + "\n" + "Compatibility: " + jObj.getString("compatibility") + "\n" + "Mood: " + jObj.getString("mood");
-                            extra.setText(extraInformation);
-                            textView.setText(horoscope);
+
 
                         } catch (JSONException e) {
                             Log.e("MYAPP", "unexpected JSON exception", e);
@@ -76,7 +73,6 @@ public class aries_activity extends AppCompatActivity {
                     }
                 }
         );
-        queue.add(postRequest);
 
     }
     public void onBackPressed() {
