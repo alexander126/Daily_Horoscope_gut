@@ -1,8 +1,5 @@
 package com.example.alex.daily_horoscope;
 
-import android.content.SharedPreferences;
-import android.preference.Preference;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 

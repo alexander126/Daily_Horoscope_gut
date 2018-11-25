@@ -1,11 +1,13 @@
 package com.example.alex.daily_horoscope;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -19,16 +21,16 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Calendar;
 
 public class opening extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,7 +40,6 @@ public class opening extends AppCompatActivity
     private TextView textView;
     private TextView dateZodiac;
     private Button all;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +51,12 @@ public class opening extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent Email  = new Intent(Intent.ACTION_SEND);
+                Email.setType("text/email");
+                Email.putExtra(Intent.EXTRA_EMAIL, new String[]{"aboutadgroup@gmail.com"});
+                Email.putExtra(Intent.EXTRA_SUBJECT,"Add your Subject"); // Email 's Subject
+                Email.putExtra(Intent.EXTRA_TEXT, "Dear ADSoft, " + "");
+                startActivity(Intent.createChooser(Email, "Send Feedback:"));
             }
         });
 
@@ -71,6 +76,20 @@ public class opening extends AppCompatActivity
         textView = (TextView)findViewById(R.id.textView);
         dateZodiac = (TextView)findViewById(R.id.currentDate);
 
+
+        //alarmReceiver
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 17);
+        calendar.set(Calendar.MINUTE, 25);
+        calendar.set(Calendar.SECOND, 0);
+
+        Intent notifyIntent = new Intent(this,AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,  calendar.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY, pendingIntent);
+
         //Typeface Textviews
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/AdventPro-Light.ttf");
         textView.setTypeface(typeface);
@@ -78,91 +97,24 @@ public class opening extends AppCompatActivity
 
         //sharedPrefs getting name of the image
         SharedPreferences sharedPref = getSharedPreferences("prefs", MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPref.edit();
         profile = (ImageView)findViewById(R.id.profile);
         info = sharedPref.getString("sign","null");
 
         //set the imageView
-        if(info=="aqua" || info.equals("aqua")){
-            profile.setImageResource(R.drawable.aquarius);
-        }
-        if(info.equals("pisces") || info == "pisces"){
-            profile.setImageResource(R.drawable.pisces);
-        }
-        if(info.equals("aries") || info=="aries"){
-            profile.setImageResource(R.drawable.aries);
-        }
-        if(info.equals("taurus") || info=="taurus"){
-            profile.setImageResource(R.drawable.taurus);
-        }
-        if(info.equals("gemini") || info=="gemini"){
-            profile.setImageResource(R.drawable.gemini);
-        }
-        if(info.equals("cancer") || info=="cancer"){
-            profile.setImageResource(R.drawable.cancer);
-        }
-        if(info.equals("leo") || info=="leo"){
-            profile.setImageResource(R.drawable.leo);
-        }
-        if(info.equals("virgo") || info=="virgo"){
-            profile.setImageResource(R.drawable.virgo);
-        }
-        if(info.equals("libra") || info=="libra"){
-            profile.setImageResource(R.drawable.libra);
-        }
-        if(info.equals("scorpio") || info=="scorpio"){
-            profile.setImageResource(R.drawable.scorpio);
-        }
-        if(info.equals("sagittarius") || info=="sagittarius"){
-            profile.setImageResource(R.drawable.sagittarius);
-        }
+        Context c = getApplicationContext();
+        int id = c.getResources().getIdentifier("drawable/"+info, null, c.getPackageName());
+        profile.setImageResource(id);
 
+        //going in the profile's zodiac activity
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(info=="aqua" || info.equals("aqua")){
-                    profile.setImageResource(R.drawable.aquarius);
-                    startActivity(new Intent(opening.this,aqua_Activity.class));
-                }
-                if(info.equals("pisces") || info == "pisces"){
-                    profile.setImageResource(R.drawable.pisces);
-                    startActivity(new Intent(opening.this,pisces_activity.class));
-                }
-                if(info.equals("aries") || info=="aries"){
-                    profile.setImageResource(R.drawable.aries);
-                    startActivity(new Intent(opening.this,aries_activity.class));
-                }
-                if(info.equals("taurus") || info=="taurus"){
-                    profile.setImageResource(R.drawable.taurus);
-                    startActivity(new Intent(opening.this,taurus_activity.class));
-                }
-                if(info.equals("gemini") || info=="gemini"){
-                    profile.setImageResource(R.drawable.gemini);
-                    startActivity(new Intent(opening.this,gemini_activity.class));
-                }
-                if(info.equals("cancer") || info=="cancer"){
-                    profile.setImageResource(R.drawable.cancer);
-                    startActivity(new Intent(opening.this,cancer_activity.class));
-                }
-                if(info.equals("leo") || info=="leo"){
-                    profile.setImageResource(R.drawable.leo);
-                    startActivity(new Intent(opening.this,leo_activity.class));
-                }
-                if(info.equals("virgo") || info=="virgo"){
-                    profile.setImageResource(R.drawable.virgo);
-                    startActivity(new Intent(opening.this,virgo_activity.class));
-                }
-                if(info.equals("libra") || info=="libra"){
-                    profile.setImageResource(R.drawable.libra);
-                    startActivity(new Intent(opening.this,libra_activity.class));
-                }
-                if(info.equals("scorpio") || info=="scorpio"){
-                    profile.setImageResource(R.drawable.scorpio);
-                    startActivity(new Intent(opening.this,scorpio_activity.class));
-                }
-                if(info.equals("sagittarius") || info=="sagittarius"){
-                    profile.setImageResource(R.drawable.sagittarius);
-                    startActivity(new Intent(opening.this,sagittarius_activity.class));
-                }
+
+                editor.putString("key",info);
+                editor.commit();
+                startActivity(new Intent(opening.this,oneForAll.class));
+
             }
         });
 
@@ -231,11 +183,13 @@ public class opening extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int id = R.id.action_settings;
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(opening.this,AutoSettings.class);
+            startActivity(intent);
+
         }
 
         return super.onOptionsItemSelected(item);

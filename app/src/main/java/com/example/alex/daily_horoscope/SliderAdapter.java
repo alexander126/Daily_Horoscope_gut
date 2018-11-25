@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class SliderAdapter extends PagerAdapter {
+public class    SliderAdapter extends PagerAdapter {
     Context context;
     LayoutInflater layoutInflater;
     public SliderAdapter(Context context){

@@ -1,6 +1,6 @@
 package com.example.alex.daily_horoscope;
 
-import android.app.Application;
+
 import android.content.Context;
 
 /**

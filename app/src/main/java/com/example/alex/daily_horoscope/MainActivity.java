@@ -12,6 +12,7 @@
 package com.example.alex.daily_horoscope;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this.getApplicationContext();
+
+
 
 // TODO: Add adView to your view hierarchy.
         //---Setting property for greeting message and styling it a bit---//
@@ -58,183 +61,141 @@ public class MainActivity extends AppCompatActivity  {
         ImageButton capriButton;
         capriButton = (ImageButton) findViewById(R.id.bCapricorn);
 
+        //prefferences for activities
+        SharedPreferences sharedPref = getSharedPreferences("prefs",MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPref.edit();
         //---Setting actions for each button when pressed---/
 
         aquaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString("key","aquarius");
+                editor.commit();
                 Intent aquaActivity = new Intent(MainActivity.this,
-                        aqua_Activity.class);
+                        oneForAll.class);
                 startActivity(aquaActivity);
             }
         });
         piscesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString("key","pisces");
+                editor.commit();
                 Intent piscesActivity = new Intent(MainActivity.this,
-                        pisces_activity.class);
+                        oneForAll.class);
                 startActivity(piscesActivity);
             }
         });
         ariesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString("key","aries");
+                editor.commit();
                 Intent ariesActivity = new Intent(MainActivity.this,
-                        aries_activity.class);
+                        oneForAll.class);
                 startActivity(ariesActivity);
             }
         });
         taurusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString("key","taurus");
+                editor.commit();
                 Intent taurusActivity = new Intent(MainActivity.this,
-                        taurus_activity.class);
+                        oneForAll.class);
                 startActivity(taurusActivity);
             }
         });
         geminiButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString("key","gemini");
+                editor.commit();
                 Intent geminiActivity = new Intent(MainActivity.this,
-                        gemini_activity.class);
+                        oneForAll.class);
                 startActivity(geminiActivity);
             }
         });
         cancerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString("key","cancer");
+                editor.commit();
                 Intent cancerActivity = new Intent(MainActivity.this,
-                        cancer_activity.class);
+                        oneForAll.class);
                 startActivity(cancerActivity);
             }
         });
         leoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString("key","leo");
+                editor.commit();
                 Intent leoActivity = new Intent(MainActivity.this,
-                        leo_activity.class);
+                        oneForAll.class);
                 startActivity(leoActivity);
             }
         });
         virgoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString("key","virgo");
+                editor.commit();
                 Intent virgoActivity = new Intent(MainActivity.this,
-                        virgo_activity.class);
+                        oneForAll.class);
                 startActivity(virgoActivity);
             }
         });
         libraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString("key","libra");
+                editor.commit();
                 Intent libraActivity = new Intent(MainActivity.this,
-                        libra_activity.class);
+                        oneForAll.class);
                 startActivity(libraActivity);
             }
         });
         scorpioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString("key","scorpio");
+                editor.commit();
                 Intent scorpioActivity = new Intent(MainActivity.this,
-                        scorpio_activity.class);
+                        oneForAll.class);
                 startActivity(scorpioActivity);
             }
         });
         sagittariusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString("key","sagittarius");
+                editor.commit();
                 Intent sagittActivity = new Intent(MainActivity.this,
-                        sagittarius_activity.class);
+                        oneForAll.class);
                 startActivity(sagittActivity);
             }
         });
         capriButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString("key","capricorn");
+                editor.commit();
                 Intent capriActivity = new Intent(MainActivity.this,
-                        capricorn_activity.class);
+                        oneForAll.class);
                 startActivity(capriActivity);
             }
         });
     }
-    //--Initializing static methods for navigation--//
-    public static void goToCapriAct() {
-        Intent capriacti = new Intent(mContext, capricorn_activity.class);
-        capriacti.addFlags(capriacti.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(capriacti);
 
-    }
-
-    private static void goToAquaAct() {
-        Intent aquaacti = new Intent(mContext, aqua_Activity.class);
-        aquaacti.addFlags(aquaacti.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(aquaacti);
-    }
-
-    private static void goToPiscAct() {
-        Intent piscacti = new Intent(mContext, pisces_activity.class);
-        piscacti.addFlags(piscacti.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(piscacti);
-    }
-
-    private static void goToAriesAct() {
-        Intent ariesacti = new Intent(mContext, aries_activity.class);
-        ariesacti.addFlags(ariesacti.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(ariesacti);
-    }
-
-    public static void goToTaurAct() {
-        Intent taursacti = new Intent(mContext, taurus_activity.class);
-        taursacti.addFlags(taursacti.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(taursacti);
-    }
-
-    private static void goToGeminiAct() {
-        Intent geminiacti = new Intent(mContext, gemini_activity.class);
-        geminiacti.addFlags(geminiacti.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(geminiacti);
-    }
-
-    private static void goToCancAct() {
-        Intent cancacti = new Intent(mContext, cancer_activity.class);
-        cancacti.addFlags(cancacti.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(cancacti);
-    }
-
-    private static void goToLeoAct() {
-        Intent leoacti = new Intent(mContext, leo_activity.class);
-        leoacti.addFlags(leoacti.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(leoacti);
-    }
-
-    private static void goToVirgoAct() {
-        Intent virgoacti = new Intent(mContext, virgo_activity.class);
-        mContext.startActivity(virgoacti);
-    }
-
-    private static void goToLibraAct() {
-        Intent libraacti = new Intent(mContext, libra_activity.class);
-        libraacti.addFlags(libraacti.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(libraacti);
-    }
-
-    private static void goToScorpAct() {
-        Intent scorpacti = new Intent(mContext, scorpio_activity.class);
-        scorpacti.addFlags(scorpacti.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(scorpacti);
-    }
-
-    private static void goToSaggAct() {
-        Intent saggacti = new Intent(mContext, sagittarius_activity.class);
-        saggacti.addFlags(saggacti.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(saggacti);
-    }
 
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(MainActivity.this,opening.class);
         startActivity(intent);
     }
+
+
 
 }
 

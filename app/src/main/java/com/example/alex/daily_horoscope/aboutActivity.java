@@ -11,9 +11,6 @@ package com.example.alex.daily_horoscope;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.TextView;
-import android.widget.Toast;
-import java.io.*;
 import android.view.View;
 import mehdi.sakout.aboutpage.AboutPage;
 import mehdi.sakout.aboutpage.Element;

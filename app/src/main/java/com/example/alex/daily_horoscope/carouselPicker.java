@@ -1,6 +1,6 @@
 package com.example.alex.daily_horoscope;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -11,8 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +72,7 @@ public class carouselPicker extends AppCompatActivity {
 
                             if(i==0) {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
-                                editor.putString("sign","aqua");
+                                editor.putString("sign","aquarius");
                                 editor.commit();
                             }
                             if(i==1) {
