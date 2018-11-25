@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textColor="@color/heading"
-        android:textSize="30sp"
+        android:textAlignment="center"
+        android:textSize="28sp"
         android:text="@string/chooseSign"/>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,8 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:paddingRight="-120dp"
-            android:paddingLeft="-120dp"
+            android:paddingRight="-80dp"
+            android:paddingLeft="-80dp"
             app:items_visible="seven">
 
         </in.goodiebag.carouselpicker.CarouselPicker>
