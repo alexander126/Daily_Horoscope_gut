@@ -44,25 +44,18 @@ public class opening extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opening);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
+
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Email  = new Intent(Intent.ACTION_SEND);
-                Email.setType("text/email");
-                Email.putExtra(Intent.EXTRA_EMAIL, new String[]{"aboutadgroup@gmail.com"});
-                Email.putExtra(Intent.EXTRA_SUBJECT,"Add your Subject"); // Email 's Subject
-                Email.putExtra(Intent.EXTRA_TEXT, "Dear ADSoft, " + "");
-                startActivity(Intent.createChooser(Email, "Send Feedback:"));
+                drawer.openDrawer(GravityCompat.START);
             }
         });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 

@@ -13,13 +13,7 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         >
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/transparent"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            />
+
 
     </android.support.design.widget.AppBarLayout>
 
@@ -29,10 +23,10 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
+        android:layout_gravity="top|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email"
-        app:backgroundTint="@color/heading"
+        app:srcCompat="@drawable/icon_settings"
+        app:backgroundTint="@color/white"
         app:fabSize="normal"/>
 
 </android.support.design.widget.CoordinatorLayout>
