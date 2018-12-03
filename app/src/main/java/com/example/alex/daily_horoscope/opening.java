@@ -180,8 +180,7 @@ public class opening extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(opening.this,AutoSettings.class);
-            startActivity(intent);
+
 
         }
 
@@ -201,7 +200,8 @@ public class opening extends AppCompatActivity
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
-
+            Intent intent = new Intent(opening.this,AutoSettings.class);
+            startActivity(intent);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

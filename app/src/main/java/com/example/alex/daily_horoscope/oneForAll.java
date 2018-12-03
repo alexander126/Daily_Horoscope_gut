@@ -8,7 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -25,6 +28,8 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class oneForAll extends AppCompatActivity {
 
+    Animation uptodown,downtoup;
+    RelativeLayout rel1, rel2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,16 @@ public class oneForAll extends AppCompatActivity {
         final TextView extra = (TextView)findViewById(R.id.extra);
         final ImageView image = (ImageView)findViewById(R.id.beggining);
         ImageView imageZodiac = (ImageView)findViewById(R.id.image);
+
+        //layout animation
+        rel1 = (RelativeLayout)findViewById(R.id.rel1);
+        rel2 = (RelativeLayout)findViewById(R.id.rel2);
+
+        uptodown = AnimationUtils.loadAnimation(this, R.anim.uptodown);
+        downtoup = AnimationUtils.loadAnimation(this, R.anim.downtoup);
+
+        rel1.setAnimation(uptodown);
+        rel2.setAnimation(downtoup);
 
         //preferences for activity
         SharedPreferences sharedPref = getSharedPreferences("prefs", MODE_PRIVATE);
@@ -95,11 +110,6 @@ public class oneForAll extends AppCompatActivity {
                 startActivity(Intent.createChooser(sendIntent, "Share this using..."));
             }
         });
-    }
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(oneForAll.this,MainActivity.class);
-        startActivity(intent);
     }
 
 
