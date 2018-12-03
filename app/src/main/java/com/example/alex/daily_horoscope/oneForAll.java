@@ -24,23 +24,25 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.AdRequest;
 
 public class oneForAll extends AppCompatActivity {
 
-    private InterstitialAd mInterstitialAd;
-
+    AdView mAdView;
     Animation uptodown,downtoup;
     RelativeLayout rel1, rel2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one_for_all);
-        MobileAds.initialize(this, "ca-app-pub-8629737007792498~8339643427");
-
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+        mAdView = (AdView) findViewById(R.id.adVieww);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         RequestQueue queue = Volley.newRequestQueue(this);
         final TextView textView = (TextView) findViewById(R.id.textview);
         final TextView extra = (TextView)findViewById(R.id.extra);

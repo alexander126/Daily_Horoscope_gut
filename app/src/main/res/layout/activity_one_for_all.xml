@@ -8,7 +8,7 @@
     tools:context="com.example.alex.daily_horoscope.oneForAll">
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
     <RelativeLayout
         android:id="@+id/rel1"
         android:layout_width="match_parent"
@@ -58,5 +58,15 @@
             android:layout_below="@+id/extra"
             android:src="@drawable/splashlogo"/>
     </RelativeLayout>
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adVieww"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        </com.google.android.gms.ads.AdView>
     </RelativeLayout>
 </ScrollView>
