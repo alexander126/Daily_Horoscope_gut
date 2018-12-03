@@ -24,9 +24,12 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static android.content.Context.MODE_PRIVATE;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.InterstitialAd;
 
 public class oneForAll extends AppCompatActivity {
+
+    private InterstitialAd mInterstitialAd;
 
     Animation uptodown,downtoup;
     RelativeLayout rel1, rel2;
@@ -34,6 +37,10 @@ public class oneForAll extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one_for_all);
+        MobileAds.initialize(this, "ca-app-pub-8629737007792498~8339643427");
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         RequestQueue queue = Volley.newRequestQueue(this);
         final TextView textView = (TextView) findViewById(R.id.textview);
         final TextView extra = (TextView)findViewById(R.id.extra);

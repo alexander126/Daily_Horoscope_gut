@@ -14,11 +14,11 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         SharedPreferences settings = getSharedPreferences("prefs", 0);
-        FirebaseMessaging.getInstance().subscribeToTopic("Horoscope");
+
 
         if (settings.getBoolean("my_first_time", true)) {
             //the app is being launched for first time, do something
-
+            FirebaseMessaging.getInstance().subscribeToTopic("Horoscope");
             // first time task
             startActivity(new Intent(SplashActivity.this, profile_activity.class));
             finish();
