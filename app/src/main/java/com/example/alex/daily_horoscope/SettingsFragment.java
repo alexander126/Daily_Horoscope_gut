@@ -12,6 +12,9 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
+import android.util.Log;
+
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Calendar;
 
@@ -80,9 +83,9 @@ public class SettingsFragment extends PreferenceFragment {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 if(!((Boolean) newValue)) {
-
+                    FirebaseMessaging.getInstance().unsubscribeFromTopic("Horoscope");
                 } else {
-
+                    FirebaseMessaging.getInstance().subscribeToTopic("Horoscope");
                 }
                 return true;
             }
