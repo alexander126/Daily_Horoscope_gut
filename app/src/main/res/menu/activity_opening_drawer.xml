@@ -7,10 +7,11 @@
 
         <item
             android:id="@+id/zodiacSign"
+            android:icon="@drawable/changezodiacsign"
             android:title="Change zodiac sign" />
         <item
             android:id="@+id/notifications"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/notification"
             android:title="Notifications" />
     </group>
 
@@ -18,11 +19,11 @@
         <menu>
             <item
                 android:id="@+id/rate"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/rate"
                 android:title="Rate the application" />
             <item
                 android:id="@+id/aboutus"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/info"
                 android:title="About us" />
         </menu>
     </item>

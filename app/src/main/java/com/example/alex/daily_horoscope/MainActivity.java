@@ -13,29 +13,54 @@ package com.example.alex.daily_horoscope;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.content.Intent;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity  {
     private static Context mContext;
-
+    private LinearLayout l1,l2,l3,l4;
+    private ImageButton info;
+    Animation uptodown,downtoup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this.getApplicationContext();
+        Typeface typeface = Typeface.createFromAsset(this.getAssets(), "fonts/AdventPro-Light.ttf");
 
+
+
+        l1 = (LinearLayout)findViewById(R.id.line1);
+        l2 = (LinearLayout)findViewById(R.id.line2);
+        l3 = (LinearLayout)findViewById(R.id.line3);
+        l4 = (LinearLayout)findViewById(R.id.line4);
+
+        uptodown = AnimationUtils.loadAnimation(this, R.anim.uptodown);
+        downtoup = AnimationUtils.loadAnimation(this, R.anim.downtoup);
+
+        l1.setAnimation(uptodown);
+        l2.setAnimation(uptodown);
+        l3.setAnimation(downtoup);
+        l4.setAnimation(downtoup);
 
 
 // TODO: Add adView to your view hierarchy.
         //---Setting property for greeting message and styling it a bit---//
 
         //---Initiallize properties for all of the buttons used in the Main Activity Page ---/
+        info = (ImageButton) findViewById(R.id.info);
         ImageButton aquaButton;
         aquaButton = (ImageButton) findViewById(R.id.bAquarius);
         ImageButton piscesButton;
@@ -65,6 +90,13 @@ public class MainActivity extends AppCompatActivity  {
         SharedPreferences sharedPref = getSharedPreferences("prefs",MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPref.edit();
         //---Setting actions for each button when pressed---/
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, getString(R.string.zodiacDates  ), Toast.LENGTH_LONG).show();
+
+            }
+        });
 
         aquaButton.setOnClickListener(new View.OnClickListener() {
             @Override

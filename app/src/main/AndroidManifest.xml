@@ -65,6 +65,7 @@
         <activity
             android:name=".opening"
             android:label="@string/title_activity_opening"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity android:name=".oneForAll"></activity>
     </application>

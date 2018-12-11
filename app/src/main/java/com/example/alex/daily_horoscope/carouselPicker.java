@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import in.goodiebag.carouselpicker.CarouselPicker;
 
 public class carouselPicker extends AppCompatActivity {
     private CarouselPicker carouselPicker;
-    private Button enter;
+    private ImageButton enter;
     private TextView zodiacSign;
     private TextView choose;
 
@@ -28,7 +29,7 @@ public class carouselPicker extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carousel_picker);
 
-        SharedPreferences sharedPref = getSharedPreferences("prefs",MODE_PRIVATE);
+        final SharedPreferences sharedPref = getSharedPreferences("prefs",MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPref.edit();
 
         choose = (TextView)findViewById(R.id.choose);
@@ -38,7 +39,7 @@ public class carouselPicker extends AppCompatActivity {
         choose.setTypeface(typeface);
 
         carouselPicker = (CarouselPicker)findViewById(R.id.carouselPicker);
-        enter = (Button)findViewById(R.id.enter) ;
+        enter = (ImageButton)findViewById(R.id.enter) ;
 
         //carouselItems
         List<CarouselPicker.PickerItem> itemImages = new ArrayList<>();
@@ -69,8 +70,9 @@ public class carouselPicker extends AppCompatActivity {
                 enter.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        sharedPref.edit().putBoolean("my_first_time", false).commit();
 
-                            if(i==0) {
+                        if(i==0) {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
                                 editor.putString("sign","aquarius");
                                 editor.commit();

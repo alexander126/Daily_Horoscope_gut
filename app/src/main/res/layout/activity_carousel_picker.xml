@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/choose"
         android:layout_above="@+id/linear"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textColor="@color/heading"
@@ -37,14 +37,15 @@
         </in.goodiebag.carouselpicker.CarouselPicker>
 
     </LinearLayout>
-    <Button
+    <ImageButton
         android:id="@+id/enter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/ripple_effect"
+        android:src="@drawable/done"
         android:layout_gravity="bottom"
+        android:background="@null"
         android:text="Check" />
     <TextView
         android:id="@+id/unknownZ"

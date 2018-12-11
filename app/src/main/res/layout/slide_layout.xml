@@ -27,5 +27,6 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:paddingTop="60dp"
         android:layout_below="@+id/slide_heading"/>
 </RelativeLayout>

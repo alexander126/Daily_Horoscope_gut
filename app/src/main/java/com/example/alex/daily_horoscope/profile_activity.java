@@ -46,6 +46,8 @@ public class profile_activity extends AppCompatActivity {
         backPage = (Button)findViewById(R.id.backButton);
         nextPage = (Button)findViewById(R.id.nextButton);
 
+        SharedPreferences settings = getSharedPreferences("prefs", 0);
+
         //TODO: check this lines
         //set typeface for buttons ???
      /*   Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/AdventPro-Light.ttf");

@@ -20,7 +20,7 @@ public class    SliderAdapter extends PagerAdapter {
     //arrays
     public int[] slideImages = {
             R.drawable.splashlogo,
-            R.drawable.kid,
+            R.drawable.tailored,
             R.drawable.touch
     };
     public String[] slide_headings = {

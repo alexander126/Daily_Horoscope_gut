@@ -1,7 +1,6 @@
 package com.example.alex.daily_horoscope;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
+
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -17,10 +16,9 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.android.volley.Request;
@@ -32,7 +30,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Calendar;
 
 public class opening extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,7 +38,7 @@ public class opening extends AppCompatActivity
     private String info;
     private TextView textView;
     private TextView dateZodiac;
-    private Button all;
+    private ImageButton all;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,23 +64,9 @@ public class opening extends AppCompatActivity
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        all = (Button)findViewById(R.id.all);
+        all = (ImageButton)findViewById(R.id.all);
         textView = (TextView)findViewById(R.id.textView);
         dateZodiac = (TextView)findViewById(R.id.currentDate);
-
-
-        //alarmReceiver
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 17);
-        calendar.set(Calendar.MINUTE, 25);
-        calendar.set(Calendar.SECOND, 0);
-
-        Intent notifyIntent = new Intent(this,AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,  calendar.getTimeInMillis(),
-                AlarmManager.INTERVAL_DAY, pendingIntent);
 
         //Typeface Textviews
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/AdventPro-Light.ttf");
