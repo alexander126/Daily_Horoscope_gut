@@ -25,6 +25,9 @@ import android.widget.LinearLayout;
 
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity  {
     private LinearLayout l1,l2,l3,l4;
     private ImageButton info;
     Animation uptodown,downtoup;
-
+    AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +44,12 @@ public class MainActivity extends AppCompatActivity  {
         mContext = this.getApplicationContext();
         Typeface typeface = Typeface.createFromAsset(this.getAssets(), "fonts/AdventPro-Light.ttf");
 
-
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+        mAdView = (AdView) findViewById(R.id.adVieww);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         l1 = (LinearLayout)findViewById(R.id.line1);
         l2 = (LinearLayout)findViewById(R.id.line2);
