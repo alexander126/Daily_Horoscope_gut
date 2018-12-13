@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +25,7 @@ public class carouselPicker extends AppCompatActivity {
     private ImageButton enter;
     private TextView zodiacSign;
     private TextView choose;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,8 @@ public class carouselPicker extends AppCompatActivity {
 
         carouselPicker = (CarouselPicker)findViewById(R.id.carouselPicker);
         enter = (ImageButton)findViewById(R.id.enter) ;
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         //carouselItems
         List<CarouselPicker.PickerItem> itemImages = new ArrayList<>();
@@ -76,61 +81,121 @@ public class carouselPicker extends AppCompatActivity {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
                                 editor.putString("sign","aquarius");
                                 editor.commit();
+                                Bundle bundle = new Bundle();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "2");
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "aquarius");
+                                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "sign");
+                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                             }
                             if(i==1) {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
                                 editor.putString("sign","pisces");
                                 editor.commit();
+                                Bundle bundle = new Bundle();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "3");
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "pisces");
+                                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "sign");
+                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                             }
                             if(i==2) {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
                                 editor.putString("sign","aries");
                                 editor.commit();
+                                Bundle bundle = new Bundle();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "4");
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "aries");
+                                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "sign");
+                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                             }
                             if(i==3) {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
                                 editor.putString("sign","taurus");
                                 editor.commit();
+                                Bundle bundle = new Bundle();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "5");
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "taurus");
+                                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "sign");
+                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                             }
                             if(i==4) {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
                                 editor.putString("sign","gemini");
                                 editor.commit();
+                                Bundle bundle = new Bundle();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "6");
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "gemini");
+                                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "sign");
+                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                             }
                             if(i==5) {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
                                 editor.putString("sign","cancer");
                                 editor.commit();
+                                Bundle bundle = new Bundle();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "7");
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "cancer");
+                                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "sign");
+                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                             }
                             if(i==6) {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
                                 editor.putString("sign","leo");
                                 editor.commit();
+                                Bundle bundle = new Bundle();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "8");
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "leo");
+                                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "sign");
+                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                             }
                             if(i==7) {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
                                 editor.putString("sign","virgo");
                                 editor.commit();
+                                Bundle bundle = new Bundle();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "9");
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "virgo");
+                                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "sign");
+                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                             }
                             if(i==8) {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
                                 editor.putString("sign","libra");
                                 editor.commit();
+                                Bundle bundle = new Bundle();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "10");
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "libra");
+                                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "sign");
+                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                             }
                             if(i==9) {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
                                 editor.putString("sign","scorpio");
                                 editor.commit();
+                                Bundle bundle = new Bundle();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "11");
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "scorpio");
+                                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "sign");
+                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                             }
                             if(i==10) {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
                                 editor.putString("sign","sagittarius");
                                 editor.commit();
+                                Bundle bundle = new Bundle();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "12");
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "sagittarius");
+                                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "sign");
+                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                             }
                             if(i==11) {
                                 startActivity(new Intent(carouselPicker.this, opening.class));
                                 editor.putString("sign","capricorn");
                                 editor.commit();
+                                Bundle bundle = new Bundle();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "13");
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "capricorn");
+                                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "sign");
+                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                             }
 
 
