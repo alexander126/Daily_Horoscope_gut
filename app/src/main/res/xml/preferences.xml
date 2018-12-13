@@ -10,7 +10,7 @@
         android:summary="Manage the notification"
         android:defaultValue="true"
         />
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:title="Personalization"/>
     <Preference
         android:key="key2"
@@ -31,5 +31,5 @@
         android:summary="We`d appreciate it if you give us your feedback."
                     />
 
-
+-->
 </PreferenceScreen>
